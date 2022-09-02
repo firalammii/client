@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
-import App2 from './components/App2';
+//import App2 from './components/App2';
 import reportWebVitals from './reportWebVitals';
 
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
@@ -13,7 +15,7 @@ root.render(
     <BrowserRouter>
        <Routes>
           <Route path= '/' element={<App/>}/>
-          <Route path= '/users' element={<App2/>}/>
+          <Route path= '/users' element={<App/>}/>
           {/* <Route path= '/customer/signup' element={<Signup/>}/>
           <Route path= '/customer/login' element={<Login/>}/>
           <Route path= '/request/post' element={<Request/>}/> */}
