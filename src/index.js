@@ -4,10 +4,12 @@ import './index.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
-//import App2 from './components/App2';
+
+
 import reportWebVitals from './reportWebVitals';
 
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import Signup from './components/Signup';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -16,8 +18,8 @@ root.render(
        <Routes>
           <Route path= '/' element={<App/>}/>
           <Route path= '/users' element={<App/>}/>
-          {/* <Route path= '/customer/signup' element={<Signup/>}/>
-          <Route path= '/customer/login' element={<Login/>}/>
+           <Route path= '/customer/signup' element={<Signup />}/>
+          {/*<Route path= '/customer/login' element={<Login/>}/>
           <Route path= '/request/post' element={<Request/>}/> */}
        </Routes>
     </BrowserRouter>

@@ -1,6 +1,5 @@
-import logo from './logo.svg';
+
 import './App.css';
-import BackButton from './components/BackButton';
 import {Button} from 'react-bootstrap';
 import {useNavigate} from 'react-router-dom'
 
