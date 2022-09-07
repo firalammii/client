@@ -9,10 +9,11 @@ function App() {
     <div className="App">
       <h1>Hello THERE !!</h1>
       <h2>WELCOME to Dispute Management System</h2>
-      <div>
-        <Button onClick = {()=>navigate('/customer/signup')}> SIGNUP </Button>{"  "}
+      <div >
+        <Button className='buttons' onClick = {()=>navigate('/customer/signup')}> SIGNUP </Button>
     
-        <Button onClick = {()=>navigate('/customer/login')}> LOGIN </Button>
+        <Button className='buttons' onClick = {()=>navigate('/customer/login')}> LOGIN </Button>
+
       </div>
     </div>
   );

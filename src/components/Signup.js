@@ -3,25 +3,23 @@ import React, {useState} from "react";
 import Axios from "axios";
 import {useNavigate} from "react-router-dom";
 import { Button} from 'react-bootstrap';
-//import {TextField} from "@material-ui/core";
 import BackButton from './BackButton'
-import { Box, TextField } from "@mui/material";
 
 
 
-const Signup = ()=>{
+
+const Signup = () => {
     const herokuUrl = "https://dispute-mgt-sys-api.herokuapp.com";
     //const localUrl = "http://localhost:3000";
 
     const navigate = useNavigate();
-
 
     const[data, setData] = useState({
         firstName: '',  
         middleName: '',  
         lastName: '',  
         //urbanks: [ bankSchema ],
-       // email: '',
+        email: '',
         phoneNumber: '',
         pwd: "",
         matchPwd: ""
@@ -54,21 +52,25 @@ const Signup = ()=>{
 
     return(
 
-        <Box component="form"
-            sx={{
-                '& .MuiTextField-root': { m: 2, width: '50ch', height: '4.5ch'},
-            }}
-            validate
-            autoComplete="on"
-            display={'flex'}
-            flexDirection={'column'}
-            justifyContent= {'center'}
-            alignItems={'center'}
-            marginTop={"3px"}
-            border={"1px solid mediumblue"}
-        >
+        <form 
+            className= "forminputs"
 
-            <TextField
+            // component="form"
+            // sx={{'& .MuiTextField-root': { m: 2, width: '50ch', height: '4.5ch'},}}
+            // validate
+            // autoComplete="on"
+            // display={'flex'}
+            // flexDirection={'column'}
+            // justifyContent= {'center'}
+            // alignItems={'center'}
+            // marginTop={"3px"}
+            // border={"1px solid mediumblue"}
+        >
+            <label>First Name: </label>
+
+
+            <input
+            className="forminputs"
                 type = {"text"}
                 id={"firstName"}
                 label = {"First Name"}
@@ -78,7 +80,8 @@ const Signup = ()=>{
                 onChange={(e)=>handleFields(e)}
             />
 
-            <TextField
+            <input
+            className="forminputs"
                 type = {"text"}
                 id={"middleName"}
                 label = {"Middle Name"}
@@ -88,7 +91,8 @@ const Signup = ()=>{
                 onChange={(e)=>handleFields(e)}
             />
 
-            <TextField
+            <input
+            className="forminputs"
                 type = {"text"}
                 id={"lastName"}
                 label = {"Last Name"}
@@ -98,7 +102,8 @@ const Signup = ()=>{
                 onChange={(e)=>handleFields(e)}
             />
 
-            <TextField
+            <input
+            className="forminputs"
                 type = {"email"}
                 id={"email"}
                 label = {"Email"}
@@ -108,7 +113,8 @@ const Signup = ()=>{
                 onChange={(e)=>handleFields(e)}
             />
 
-            <TextField
+            <input
+            className="forminputs"
                 type = {"tel"}
                 id={"phoneNumber"}
                 label = {"Mobile Phone Number"}
@@ -118,7 +124,8 @@ const Signup = ()=>{
                 onChange={(e)=>handleFields(e)}
             />
 
-            <TextField
+            <input
+            className="forminputs"
                 type = {"password"}
                 id={"pwd"}
                 label = {"password"}
@@ -128,7 +135,8 @@ const Signup = ()=>{
                 onChange={(e)=>handleFields(e)}
             />
 
-            <TextField
+            <input
+            className="forminputs"
                 type = {"password"}
                 id={"matchPwd"}
                 label = {"confirmPassword"}
@@ -138,41 +146,37 @@ const Signup = ()=>{
                 onChange={(e)=>handleFields(e)}
             />
             <div>
+                <Button
+                    className='buttons'
+                    variant = {"contained"}
+                    color = {"primary"}
+                    onClick = {(e) => {
+                        if(data.pwd !== data.matchPwd){
+                            alert("the passwords are different!!");
+                        }
+                        else{
+                            handleSubmit(e)
+                        }
+                    }}
+                >
+                    Sign up
+                </Button>
 
-            <Button
-                variant = {"contained"}
-                color = {"primary"}
-                onClick = {(e)=> {
-                    if(data.pwd !== data.matchPwd){
-                        alert("the passwords are different!!");
-                    }
-                    else{
-                        handleSubmit(e)
-                    }
-
-                }}
-            >
-                Sign up
-            </Button>
-
-            <Button
+                <Button
+                    className= 'buttons'
+                    variant = {"contained"}
+                    color = {"primary"}
+                    onMouseOver={() => <h3>already have one</h3>}
+                    onClick = {(e) => {
+                        navigate('/customer/login');
+                    }}
+                >
+                    Login
+                </Button>
                 
-                variant = {"contained"}
-                color = {"primary"}
-                onMouseOver={()=> <h3>already have one</h3>}
-                onClick = {(e)=> {
-                    navigate('/customer/login')
-
-                }}
-                
-            >
-                Login
-            </Button>
-            
-            <BackButton />
-            </div>
-            
-       </Box>
+                <BackButton className= 'buttons'/>
+            </div> 
+       </form>
     );
 }
 export default Signup;
