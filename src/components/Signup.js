@@ -9,8 +9,7 @@ import BackButton from './BackButton'
 
 
 const Signup = () => {
-    const herokuUrl = "https://dispute-mgt-sys-api.herokuapp.com";
-    //const localUrl = "http://localhost:3000";
+    
 
     const navigate = useNavigate();
 
@@ -32,6 +31,8 @@ const Signup = () => {
     }
 
     function handleSubmit(e){
+        const herokuUrl = "https://dispute-mgt-sys-api.herokuapp.com";
+        //const localUrl = "http://localhost:3000";
         e.preventDefault();
         Axios.post(herokuUrl + '/customer/signup',{
             firstName: data.firstName,  
@@ -40,7 +41,7 @@ const Signup = () => {
             email: data.email,
             phoneNumber: data.phoneNumber,
             pwd: data.pwd,
-        }).then(res=>{
+        }).then(res => {
 
             alert("WELCOME " + res.data.result.firstName + " " + res.data.result.middleName);
             navigate("/customer/login");
@@ -52,102 +53,87 @@ const Signup = () => {
 
     return(
 
-        <form 
-            className= "forminputs"
-
-            // component="form"
-            // sx={{'& .MuiTextField-root': { m: 2, width: '50ch', height: '4.5ch'},}}
-            // validate
-            // autoComplete="on"
-            // display={'flex'}
-            // flexDirection={'column'}
-            // justifyContent= {'center'}
-            // alignItems={'center'}
-            // marginTop={"3px"}
-            // border={"1px solid mediumblue"}
-        >
+        <form className= "forminputs">
             <label>First Name: </label>
-
-
             <input
-            className="forminputs"
+                className="forminputs"
                 type = {"text"}
                 id={"firstName"}
                 label = {"First Name"}
                 placeholder = {"First Name"}
                 variant = {"outlined"}
                 value = {data.firstName}
-                onChange={(e)=>handleFields(e)}
+                onChange={(e) =>handleFields(e)}
             />
 
             <input
-            className="forminputs"
+                className= "forminputs"
                 type = {"text"}
-                id={"middleName"}
+                id= {"middleName"}
                 label = {"Middle Name"}
                 placeholder = {"middle Name"}
                 variant = {"outlined"}
                 value = {data.middleName}
-                onChange={(e)=>handleFields(e)}
+                onChange= {(e)=>handleFields(e)}
             />
 
             <input
-            className="forminputs"
+                className= "forminputs"
                 type = {"text"}
-                id={"lastName"}
+                id= {"lastName"}
                 label = {"Last Name"}
                 placeholder = {"Last Name"}
                 variant = {"outlined"}
                 value = {data.lastName}
-                onChange={(e)=>handleFields(e)}
+                onChange= {(e)=>handleFields(e)}
             />
 
             <input
-            className="forminputs"
+                className= "forminputs"
                 type = {"email"}
-                id={"email"}
+                id= {"email"}
                 label = {"Email"}
                 placeholder = {"sth@sth.com"}
                 variant = {"outlined"}
                 value = {data.email}
-                onChange={(e)=>handleFields(e)}
+                onChange= {(e)=>handleFields(e)}
             />
 
             <input
-            className="forminputs"
+                className= "forminputs"
                 type = {"tel"}
-                id={"phoneNumber"}
+                id= {"phoneNumber"}
                 label = {"Mobile Phone Number"}
                 placeholder = {"0912345678"}
                 variant = {"outlined"}
                 value = {data.phoneNumber}
-                onChange={(e)=>handleFields(e)}
+                onChange= {(e)=>handleFields(e)}
             />
 
             <input
-            className="forminputs"
+                className= "forminputs"
                 type = {"password"}
-                id={"pwd"}
+                id= {"pwd"}
                 label = {"password"}
                 placeholder = {"jSsau3A#@"}
                 variant = {"outlined"}
                 value = {data.pwd}
-                onChange={(e)=>handleFields(e)}
+                onChange= {(e)=>handleFields(e)}
             />
 
             <input
-            className="forminputs"
+                className= "forminputs"
                 type = {"password"}
-                id={"matchPwd"}
+                id= {"matchPwd"}
                 label = {"confirmPassword"}
                 placeholder = {"jSsau3A#@"}
                 variant = {"outlined"}
                 value = {data.matchPwd}
-                onChange={(e)=>handleFields(e)}
+                onChange= {(e)=>handleFields(e)}
             />
             <div>
                 <Button
-                    className='buttons'
+                    className= 'buttons'
                     variant = {"contained"}
                     color = {"primary"}
                     onClick = {(e) => {
@@ -166,7 +152,7 @@ const Signup = () => {
                     className= 'buttons'
                     variant = {"contained"}
                     color = {"primary"}
-                    onMouseOver={() => <h3>already have one</h3>}
+                    onMouseOver= {() => <h3>already have one</h3>}
                     onClick = {(e) => {
                         navigate('/customer/login');
                     }}

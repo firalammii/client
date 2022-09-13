@@ -21,8 +21,10 @@ const Login = () =>{
     }
 
     function handleSubmit(e){
+        const herokuUrl = "https://dispute-mgt-sys-api.herokuapp.com";
+        //const localUrl = "http://localhost:3000";
         e.preventDefault();
-        axios.post('http://localhost:3000/customer/login',{
+        axios.post(herokuUrl + '/customer/login',{
             email: data.email,
             pwd: data.pwd,
         }).then(res=>{
@@ -47,7 +49,7 @@ const Login = () =>{
     return(
         <form className= "forminputs">
             <input
-            className="forminputs"
+                className="forminputs"
                 type = {"email"}
                 id={"email"}
                 required ={true}
@@ -59,7 +61,7 @@ const Login = () =>{
             />
 
             <input
-            className="forminputs"
+                className="forminputs"
                 type = {"tel"}
                 id={"phoneNumber"}
                 required ={true}
@@ -71,7 +73,7 @@ const Login = () =>{
             />
 
             <input
-            className="forminputs"
+                className="forminputs"
                 type = {"password"}
                 id={"pwd"}
                 required ={true}
@@ -83,7 +85,7 @@ const Login = () =>{
             />
             <div>
                 <Button
-                className= 'buttons'
+                    className= 'buttons'
                     variant = {"contained"}
                     color = {"primary"}
                     onClick = {(e)=> {
@@ -94,7 +96,7 @@ const Login = () =>{
                 </Button>
 
                 <Button
-                className= 'buttons'
+                    className= 'buttons'
                     label= {'new user?'}
                     onClick = {(e)=> {
                         navigate('/customer/signup')

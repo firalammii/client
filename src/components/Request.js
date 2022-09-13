@@ -96,16 +96,17 @@ export default function Request() {
   const [accountNumber, setAccountNumber] = React.useState("");
   const [cardNumber, setCardNumber] = React.useState("");
   const [debitedDate, setDebitedDate] = React.useState();
-  const [estimatedTime, setEstimatedTime] = React.useState("");
+  const [estimatedTime, setEstimatedTime] = React.useState("Before Mid Night");
   const [checked, setChecked] = React.useState(false);
-  const [debitedAmount, setDebitedAmount] = React.useState("00");
+  const [debitedAmount, setDebitedAmount] = React.useState("100");
 
   //get valuesfrom the database
-
+  const herokuUrl = "https://dispute-mgt-sys-api.herokuapp.com";
+    //const localUrl = "http://localhost:3000";
   const handleSubmit = ()=>{
 
     axios
-      .post("http://localhost:3000/request/post", {debitedBank, cardNumber, atmOwnerBank, debitedDate, estimatedTime, debitedAmount})
+      .post(herokuUrl + "/request/post", {debitedBank, cardNumber, atmOwnerBank, debitedDate, estimatedTime, debitedAmount})
       .then(res => alert(res.data.result.debitedAmount))
       .catch(err => console.error(err));
   }
@@ -196,12 +197,12 @@ export default function Request() {
 
         <input
         className= "forminputs"
-          id="amount-debited"
-          type={"number"}
+          id= "amount-debited"
+          type= {"number"}
           required
-          label="Amount"
-          value={debitedAmount}
-          onChange={(e) => setDebitedAmount(e.target.value)}
+          label= "Amount"
+          value= {debitedAmount}
+          onChange= {(e) => setDebitedAmount(e.target.value)}
           // InputProps={{
           //   endAdornment: <InputAdornment position="end">ETB</InputAdornment>,
           // }}
@@ -210,18 +211,18 @@ export default function Request() {
         
       <div>
         <input 
-          type={"checkbox"}
-          checked={checked}
-          onChange={(e) => setChecked(!checked)}
+          type= {"checkbox"}
+          checked= {checked}
+          onChange= { (e) => setChecked(!checked)}
       />
         {"  "}<label 
-            onDoubleClick={(e) => setChecked(!checked)}
+            onDoubleClick= { (e) => setChecked(!checked)}
         >
             I agree that the above informations are correct
         </label>
       </div>
       <div>
-        <Button onClick={handleSubmit}>
+        <Button onClick= {handleSubmit}>
             Submit Request
         </Button>
       </div>
