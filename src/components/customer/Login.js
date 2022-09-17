@@ -4,7 +4,7 @@ import axios from "axios";
 import {useNavigate} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button} from 'react-bootstrap';
-import BackButton from "./BackButton";
+import BackButton from "../BackButton";
 
 const Login = () =>{
 

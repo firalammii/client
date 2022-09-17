@@ -2,6 +2,7 @@
 import './App.css';
 import { Button } from 'react-bootstrap';
 import {useNavigate} from 'react-router-dom'
+import {TextField} from '@material-ui/core'
 
 function App() {
   const navigate = useNavigate();
@@ -14,6 +15,34 @@ function App() {
     
         <Button className='buttons' onClick = {()=>navigate('/customer/login')}> LOGIN </Button>
 
+      </div>
+      <div>
+        <TextField 
+          type = {"text"}
+                id={"middleName"}
+                
+                label = {"Middle Name"}
+                placeholder = {"middle Name"}
+                variant = {"outlined"}
+                
+                
+        />
+
+        <TextField
+          id="debited-bank"
+          select
+          required
+          label="Debited Bank"
+          // value={debitedBank}
+          // onChange={(e) => setDebitedBank(e.target.value)}
+          helperText="Please select the wrongly debited bank"
+        >
+          {/* {banks.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))} */}
+        </TextField>
       </div>
     </div>
   );
