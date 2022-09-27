@@ -160,7 +160,7 @@ const EnhancedTableToolbar = (props) => {
         </Tooltip>
         </>
       ) : (
-        <h2>you can delete and update</h2>
+        <h6>you can delete and update</h6>
         // <Tooltip title="Filter list">
         //   <IconButton aria-label="filter list">
         //     <FilterListIcon />
@@ -323,7 +323,6 @@ console.log(newSelected)
                       <TableCell align="center">{row.firstName}</TableCell>
                       <TableCell align="center">{row.middleName}</TableCell>
                       <TableCell align="center">{row.lastName}</TableCell>
-                      <TableCell align="center">{row.email}</TableCell>
                       <TableCell align="center">{row.phoneNumber}</TableCell>
                     </TableRow>
                   );

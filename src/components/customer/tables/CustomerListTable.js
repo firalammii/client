@@ -30,7 +30,6 @@ const CustomerListTable1 = () => {
     { id: 'firstName', numeric: false, disablePadding: false, label: 'First Name' },
     { id: 'middleName', numeric: false, disablePadding: false, label: 'Middle Name' },
     { id: 'lastName', numeric: false, disablePadding: false, label: 'Last Name' },
-    { id: 'email', numeric: false, disablePadding: false, label: 'Email' },
     { id: 'phoneNumber', numeric: false, disablePadding: false, label: 'Tel' },
 
   ];
