@@ -19,11 +19,11 @@ const Signup = () => {
     const navigate = useNavigate();
 
     const[data, setData] = useState({
-        firstName: '',  
-        middleName: '',  
-        lastName: '',  
+        firstName: "", 
+        middleName: "",  
+        lastName: "",  
         //urbanks: [ bankSchema ],
-        phoneNumber: '',
+        phoneNumber: "",
         pwd: "",
         matchPwd: ""
     })
@@ -81,7 +81,7 @@ const Signup = () => {
                 placeholder = {"middle Name"}
                 variant = {"outlined"}
                 value = {data.middleName}
-                onChange= {(e)=> {console.log(e.target.value);handleFields(e)}}
+                onChange= {(e)=> handleFields(e)}
             />
            </div>
             
