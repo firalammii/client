@@ -138,7 +138,7 @@ const Signup2 = () => {
         ) : (
             <section >
                 <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
-                <h2 style={{ textAlign: "center", border: "2px solid red"}}>Register</h2>
+                <h2 style={{ textAlign: "center", border: "2px solid blue"}}>Register</h2>
 
                 <form >
                     <label htmlFor="firstName">
