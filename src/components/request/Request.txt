@@ -150,12 +150,11 @@ export default function Request() {
 
   return (
     <form className= "forminputs" style={{border: "2px solid grey", width: 400}}>
-        <TextField
+        <select
         className= "forminputs"
           id="debited-bank"
           select
           required
-          variant={'outlined'}
           label="Debited Bank"
           value={debitedBank}
           onChange={(e) => setDebitedBank(e.target.value)}
@@ -166,15 +165,13 @@ export default function Request() {
               {option.label}
             </option>
           ))}
-        </TextField>
-
-        <TextField
+        </select>
+        <input
         className= "forminputs"
           id="card-number"
           required
           autoComplete='off'
           label="Card Number"
-          variant={'outlined'}
           value={cardNumber}
           onChange={(e) => setCardNumber(e.target.value)}
           helperText="Please enter your card number"
@@ -192,12 +189,11 @@ export default function Request() {
           helperText="Your Account Number will be dispalyed Here"
         /> */}
 
-        <TextField
+        <select
         className= "forminputs"
           id="atm-owner-bank"
           select
           required
-          variant={'outlined'}
           label="ATM Owner Bank"
           value={atmOwnerBank}
           onChange={(e)=> setAtmOwnerBank(e.target.value)}
@@ -208,25 +204,23 @@ export default function Request() {
               {option.label}
             </option>
           ))}
-        </TextField>
+        </select>
 
-        <TextField
+        <input
         className= "forminputs"
           id="debited-date"
           type="date"
-          variant={'outlined'}
           required
           label="dd/mm/yyyy"
           value={debitedDate}
           onChange={(e) => setDebitedDate(e.target.value)}
           helperText="Please select the exact date"
         />
-        <TextField
+        <select
         className= "forminputs"
           id="estimated-time"
           select
           label="Estimated Time"
-          variant={'outlined'}
           value={estimatedTime}
           onChange={(e) => setEstimatedTime(e.target.value)}
           helperText="Please select Estimated time"
@@ -236,9 +230,9 @@ export default function Request() {
               {option.label}
             </option>
           ))}
-        </TextField>
+        </select>
 
-        <TextField
+        <input
         className= "forminputs"
           id= "amount-debited"
           type= {"number"}
@@ -248,9 +242,9 @@ export default function Request() {
           variant={'outlined'}
           onChange= {(e) => setDebitedAmount(e.target.value)}
 
-          InputProps={{
-            endAdornment: <InputAdornment position="end">ETB</InputAdornment>,
-          }}
+          // InputProps={{
+          //   endAdornment: <InputAdornment position="end">ETB</InputAdornment>,
+          // }}
           helperText="Please enter the wrongly debited amount"
         />
         

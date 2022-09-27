@@ -9,6 +9,7 @@ import App from './App';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Signup from './components/customer/Signup';
 import Signup2 from './components/customer/Signup2';
+import SignupMat from './components/SignupMat-ui';
 import Login from './components/customer/Login';
 import Login2 from './components/customer/Login2';
 import Request from './components/request/Request';
@@ -18,6 +19,7 @@ import CustomerListTable from './components/customer/tables/CustomerListTable';
 import EnhancedTable from './components/EnhancedTable';
 import RequestListTable from './components/request/tables/RequestListTable';
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -26,6 +28,7 @@ root.render(
           <Route path= '/' element= { <App/> }/>
           <Route path= '/customer/signup' element= { <Signup /> }/>
           <Route path= '/customer/signup2' element= { <Signup2 /> }/>
+          <Route path= '/customer/signupmat-ui' element= { <SignupMat /> }/>
           <Route path= '/customer/login' element= { <Login /> }/>
           <Route path= '/customer/login2' element= { <Login2 /> }/>
           <Route path= '/customer/:email' element= { <Search /> }/>
@@ -34,7 +37,7 @@ root.render(
           
 
 
-          <Route path= '/request/materail-ui' element= { <RequestMaterial /> }/>
+          <Route path= '/request/material-ui' element= { <RequestMaterial /> }/>
 
           <Route path= '/request/post' element={ <Request /> }/>
           <Route path= '/request/list' element={ <RequestListTable /> }/>

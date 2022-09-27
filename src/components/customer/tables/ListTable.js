@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { lighten, makeStyles } from '@material-ui/core/styles';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TablePagination,
   TableRow, TableSortLabel, Toolbar, Typography, Paper, Checkbox, IconButton,
-  Tooltip, FormControlLabel, Switch , CircularProgress, Box } from '@material-ui/core';
+  Tooltip, FormControlLabel, Switch , CircularProgress, Box , TextField} from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import FilterListIcon from '@material-ui/icons/FilterList';
@@ -140,6 +140,14 @@ const EnhancedTableToolbar = (props) => {
 
       {numSelected > 0 ? (
         <>
+        <Tooltip>
+          <TextField
+          id="standard-helperText"
+          label="Helper text"
+          defaultValue="Default Value"
+          helperText="Some important text"
+        />
+        </Tooltip>
         <Tooltip title="Edit">
           <IconButton onClick={()=>{axios.put(herokuUrl +`/customer/edit/{id}`)}} aria-label="edit">
             <EditIcon />

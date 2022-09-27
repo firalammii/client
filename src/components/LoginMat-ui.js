@@ -55,29 +55,17 @@ const Login = () =>{
 
     return(
         <Box component="form"
-      sx={{
-        '& .MuiTextField-root': { m: 2, width: '50ch', height: '6ch'},
-      }}
-      validate
-      autoComplete="on"
-      display={'flex'}
-      flexDirection={'column'}
-      justifyContent= {'center'}
-      alignItems={'center'}
-      marginTop={"3px"}
-      border={"1px solid mediumblue"}>
-
-            <TextField
-                type = {"email"}
-                id={"email"}
-               // required ={true}
-                className= {classes.TextField}
-                label = {"Email"}
-                placeholder = {"sth@sth.com"}
-                variant = {"outlined"}
-                value = {data.email}
-                onChange={(e)=>handleFields(e)}
-            />
+            sx={{
+                '& .MuiTextField-root': { m: 2, width: '50ch', height: '6ch'},
+            }}
+            validate
+            autoComplete="on"
+            display={'flex'}
+            flexDirection={'column'}
+            justifyContent= {'center'}
+            alignItems={'center'}
+            marginTop={"3px"}
+            border={"1px solid mediumblue"}>
 
             <TextField
                 type = {"tel"}
@@ -127,8 +115,6 @@ const Login = () =>{
             </Button>
             <BackButton />
             </div>
-
-            
 
         </Box>
     );

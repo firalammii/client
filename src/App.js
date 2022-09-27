@@ -9,6 +9,12 @@ import Login from './components/customer/Login';
 import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
 
 
+import Si from './components/customer/Si'
+import Re from './components/request/Re'
+import Textfield from "./components/Textfield"
+
+
+
 function App() {
   const navigate = useNavigate();
   const classes = useStyles();
@@ -16,17 +22,21 @@ function App() {
     <>
     <div className="App">
       
-      <h1>Hello THERE !!</h1>
-      <h2>WELCOME to Dispute Management System</h2>
-      <div >
+      <h1 style={{color: "green"}}>WELCOME </h1>
+      <h1 style={{color: "yellow"}}> <b>to</b></h1>
+      <h1 style={{color: "red"}}>Dispute Management System</h1>
+      {/* <Re/>
+      <Si/> */}
+      <Textfield/>
+      {/* <div >
         <Button className='buttons' onClick = {()=>navigate('/customer/signup2')}> SIGNUP </Button>
     
         <Button className='buttons' onClick = {()=>navigate('/customer/login')}> LOGIN </Button>
 
-      </div>
+      </div> */}
       
     </div>
-    <Container maxWidth="lg">
+    {/* <Container maxWidth="lg">
       <AppBar className={classes.appBar} position="static" color="inherit">
         <Typography className={classes.heading} variant="h2" align="center">Memories</Typography>
         <img alt="icon" height="60" />
@@ -43,7 +53,7 @@ function App() {
           </Grid>
         </Container>
       </Grow>
-    </Container>
+    </Container> */}
 
     </>
   );

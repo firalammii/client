@@ -4,7 +4,7 @@ import Axios from "axios";
 import {useNavigate} from "react-router-dom";
 import { Button} from 'react-bootstrap';
 import {TextField, makeStyles} from "@material-ui/core";
-import BackButton from '../BackButton'
+import BackButton from './BackButton'
 import { Box } from "@mui/material";
 
 export const styles = makeStyles(()=>({
@@ -69,7 +69,7 @@ const Signup = ()=>{
 
         <Box component="form"
             sx={{
-                '& .MuiTextField-root': { m: 2, width: '50ch', height: '6ch'},
+                '& .MuiTextField-root': { m: 2, width: '30ch', height: '4ch'},
             }}
             validate
             autoComplete="on"
@@ -82,15 +82,17 @@ const Signup = ()=>{
         >
 
             <TextField
+            label = {"First Name"}
                 type = {"text"}
                 id={"firstName"}
                 className={classes.TextField1}
-                label = {"First Name"}
+                
                 placeholder = {"First Name"}
                 variant = {"outlined"}
                 value = {data.firstName}
                 onChange={(e)=>handleFields(e)}
             />
+            
 
             <TextField
                 type = {"text"}

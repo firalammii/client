@@ -100,10 +100,14 @@ function Request() {
   const [debitedAmount, setDebitedAmount] = React.useState("00");
 
   const handleSubmit = ()=>{
+    if(debitedBank || cardNumber || atmOwnerBank || debitedDate || estimatedTime || debitedAmount === ""){
+      alert("fields cannot be empty!!");
+      return
+    }
     axios
       .post(heroku_url + "/request/post", {debitedBank, cardNumber, atmOwnerBank, debitedDate, estimatedTime, debitedAmount})
       .then(res => alert("sorry that "+ res.data.result.atmOwnerBank + " wrongly debited " + res.data.result.debitedAmount +
-        " from your" + res.data.result.debitedBank +" account"))
+        " from your " + res.data.result.debitedBank +" account"))
       .catch(err => console.error(err));
   }
 
