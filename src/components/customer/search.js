@@ -9,7 +9,7 @@ const Search = () => {
         const herokuUrl = "https://dispute-mgt-sys-api.herokuapp.com";
         const localUrl = "http://localhost:3000";
         axios
-          .post(localUrl+ "/search-by-email", email)
+          .post(herokuUrl+ "/search-by-email", email)
           .then(res => console.log (res.data))
           .catch(err => console.error(err));
     }

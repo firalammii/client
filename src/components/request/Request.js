@@ -100,11 +100,10 @@ export default function Request() {
   const [checked, setChecked] = React.useState(false);
   const [debitedAmount, setDebitedAmount] = React.useState("100");
 
-  //get valuesfrom the database
   const herokuUrl = "https://dispute-mgt-sys-api.herokuapp.com";
-    //const localUrl = "http://localhost:3000";
-  const handleSubmit = ()=>{
+  const localUrl = "http://localhost:3000";
 
+  const handleSubmit = () =>{
     axios
       .post(herokuUrl + "/request/post", {debitedBank, cardNumber, atmOwnerBank, debitedDate, estimatedTime, debitedAmount})
       .then(res => alert(res.data.result.debitedAmount))
@@ -113,7 +112,7 @@ export default function Request() {
 
 
   return (
-    <form className= "forminputs">
+    <form className= "forminputs" style={{border: "2px solid red", width: 400}}>
         <select
         className= "forminputs"
           id="debited-bank"

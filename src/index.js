@@ -8,9 +8,15 @@ import App from './App';
 
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Signup from './components/customer/Signup';
+import Signup2 from './components/customer/Signup2';
 import Login from './components/customer/Login';
-import Request from './components/Request';
+import Login2 from './components/customer/Login2';
+import Request from './components/request/Request';
 import Search from './components/customer/search';
+import RequestMaterial from './components/RequestMaterial-UI'
+import CustomerListTable from './components/customer/tables/CustomerListTable';
+import EnhancedTable from './components/EnhancedTable';
+import RequestListTable from './components/request/tables/RequestListTable';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -19,12 +25,19 @@ root.render(
        <Routes>
           <Route path= '/' element= { <App/> }/>
           <Route path= '/customer/signup' element= { <Signup /> }/>
+          <Route path= '/customer/signup2' element= { <Signup2 /> }/>
           <Route path= '/customer/login' element= { <Login /> }/>
+          <Route path= '/customer/login2' element= { <Login2 /> }/>
           <Route path= '/customer/:email' element= { <Search /> }/>
-          {/* <Route path= '/customer/search-by-email' element= { <Login /> }/> */}
+          <Route path= '/customer/list' element= { <CustomerListTable /> }/>
+          <Route path= '/customer/enhanced-table' element= { <EnhancedTable /> }/>
+          
 
+
+          <Route path= '/request/materail-ui' element= { <RequestMaterial /> }/>
 
           <Route path= '/request/post' element={ <Request /> }/>
+          <Route path= '/request/list' element={ <RequestListTable /> }/>
           
        </Routes>
     </BrowserRouter>

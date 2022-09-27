@@ -5,11 +5,16 @@ import {useNavigate} from "react-router-dom";
 import { Button} from 'react-bootstrap';
 import BackButton from '../BackButton'
 
+import "./signup.css";
 
 
+const herokuUrl = "https://dispute-mgt-sys-api.herokuapp.com";
+const localUrl = "http://localhost:3000";
+
+// const NAME_REGEX = /^[A-z]$/;
+//const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
 const Signup = () => {
-    
 
     const navigate = useNavigate();
 
@@ -18,7 +23,6 @@ const Signup = () => {
         middleName: '',  
         lastName: '',  
         //urbanks: [ bankSchema ],
-        email: '',
         phoneNumber: '',
         pwd: "",
         matchPwd: ""
@@ -30,31 +34,31 @@ const Signup = () => {
         setData(newData);
     }
 
+    
     function handleSubmit(e){
-        const herokuUrl = "https://dispute-mgt-sys-api.herokuapp.com";
-        //const localUrl = "http://localhost:3000";
+
         e.preventDefault();
         Axios.post(herokuUrl + '/customer/signup',{
             firstName: data.firstName,  
             middleName: data.middleName,  
             lastName: data.lastName,  
-            email: data.email,
             phoneNumber: data.phoneNumber,
             pwd: data.pwd,
-        }).then(res => {
-
-            alert("WELCOME " + res.data.result.firstName + " " + res.data.result.middleName);
+            
+        }).then((res) => {
+            console.log(res.data.result.firstName);
+            alert("WELCOME " + res.data.result.firstName + " " + res.data.result.middleName +" !");
             navigate("/customer/login");
-        }).catch(err=>{
-            alert(err)
-        })
+        }).catch(err => alert(err)
+        )
     }
 
 
     return(
 
-        <form className= "forminputs">
-            <label>First Name: </label>
+        <form className= "forminputs" style={{border: "2px solid red", width: 400}}>
+            <div>
+                First Name: 
             <input
                 className="forminputs"
                 type = {"text"}
@@ -63,9 +67,12 @@ const Signup = () => {
                 placeholder = {"First Name"}
                 variant = {"outlined"}
                 value = {data.firstName}
-                onChange={(e) =>handleFields(e)}
+                onChange={(e) => handleFields(e)}
             />
-
+            </div>
+           
+           <div>
+            Middle Name: 
             <input
                 className= "forminputs"
                 type = {"text"}
@@ -74,10 +81,13 @@ const Signup = () => {
                 placeholder = {"middle Name"}
                 variant = {"outlined"}
                 value = {data.middleName}
-                onChange= {(e)=>handleFields(e)}
+                onChange= {(e)=> {console.log(e.target.value);handleFields(e)}}
             />
-
-            <input
+           </div>
+            
+            <div>
+                Last Name: 
+                <input
                 className= "forminputs"
                 type = {"text"}
                 id= {"lastName"}
@@ -87,19 +97,11 @@ const Signup = () => {
                 value = {data.lastName}
                 onChange= {(e)=>handleFields(e)}
             />
-
-            <input
-                className= "forminputs"
-                type = {"email"}
-                id= {"email"}
-                label = {"Email"}
-                placeholder = {"sth@sth.com"}
-                variant = {"outlined"}
-                value = {data.email}
-                onChange= {(e)=>handleFields(e)}
-            />
-
-            <input
+            </div>
+            
+            <div>
+                Phone Number: 
+                <input
                 className= "forminputs"
                 type = {"tel"}
                 id= {"phoneNumber"}
@@ -109,8 +111,11 @@ const Signup = () => {
                 value = {data.phoneNumber}
                 onChange= {(e)=>handleFields(e)}
             />
-
-            <input
+            </div>
+            
+            <div>
+                Create Password: 
+                <input
                 className= "forminputs"
                 type = {"password"}
                 id= {"pwd"}
@@ -120,8 +125,11 @@ const Signup = () => {
                 value = {data.pwd}
                 onChange= {(e)=>handleFields(e)}
             />
-
-            <input
+            </div>
+            
+            <div>
+                Confirm Password: 
+                <input
                 className= "forminputs"
                 type = {"password"}
                 id= {"matchPwd"}
@@ -131,6 +139,8 @@ const Signup = () => {
                 value = {data.matchPwd}
                 onChange= {(e)=>handleFields(e)}
             />
+            </div>
+            
             <div>
                 <Button
                     className= 'buttons'

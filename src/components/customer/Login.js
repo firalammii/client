@@ -10,7 +10,7 @@ const Login = () =>{
 
     let navigate = useNavigate();
     const [data, setData] = useState({
-        email: '',
+        email: "",
         pwd: "",
     })
 
@@ -22,10 +22,10 @@ const Login = () =>{
 
     function handleSubmit(e){
         const herokuUrl = "https://dispute-mgt-sys-api.herokuapp.com";
-        //const localUrl = "http://localhost:3000";
+        const localUrl = "http://localhost:3000";
         e.preventDefault();
         axios.post(herokuUrl + '/customer/login',{
-            email: data.email,
+            phoneNumber: data.phoneNumber,
             pwd: data.pwd,
         }).then(res=>{
             handleLogin(res.data)
@@ -34,32 +34,21 @@ const Login = () =>{
         })
     }
 
-    function handleLogin (resData){
+    function handleLogin (data){
 
-        if(resData.message === "allow"){
-            alert("WELCOME BACK " + resData.result.firstName+" "+resData.result.lastName+"!!\nsuccessfully logged in");
+        if(data.message === "success"){
+            alert("login,  success!! \nyou are" + data.result.firstName+" "+ data.result.middleName+" !");
             navigate('/request/post');
         }
         else {
-            alert(resData.message)
+            alert(data.message)
         }
     }
 
 
     return(
+        
         <form className= "forminputs">
-            <input
-                className="forminputs"
-                type = {"email"}
-                id={"email"}
-                required ={true}
-                label = {"Email"}
-                placeholder = {"sth@sth.com"}
-                variant = {"outlined"}
-                value = {data.email}
-                onChange={(e)=>handleFields(e)}
-            />
-
             <input
                 className="forminputs"
                 type = {"tel"}
@@ -103,7 +92,7 @@ const Login = () =>{
 
                     }}
                 >
-                    Create Identity
+                    Signup
                 </Button>
 
                 <BackButton className= 'buttons'/>
