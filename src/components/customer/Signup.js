@@ -56,7 +56,7 @@ const Signup = () => {
 
     return(
 
-        <form className= "forminputs" style={{border: "2px solid red", width: 400}}>
+        <form className= "forminputs" style={{border: "2px solid grey", width: 400, alignContent:"center"}}>
             <div>
                 First Name: 
             <input

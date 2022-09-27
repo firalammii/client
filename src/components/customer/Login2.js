@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect, useContext } from 'react';
-import AuthContext from "../context/AuthProvider";
+// import AuthContext from "../context/AuthProvider";
 
 import axios from 'axios';
 const LOGIN_URL = '/customer/login2';
@@ -8,7 +8,7 @@ const herokuUrl = "https://dispute-mgt-sys-api.herokuapp.com";
 const localUrl = "http://localhost:3000";
 
 const Login = () => {
-    const { setAuth } = useContext(AuthContext);
+    // const { setAuth } = useContext(AuthContext);
     const phoneNumRef = useRef();
     const errRef = useRef();
 
@@ -39,7 +39,7 @@ const Login = () => {
             console.log(JSON.stringify(response.data));
             const accessToken = response.data.accessToken;
             const roles = response.data.roles;
-            setAuth({ phoneNumber, pwd, roles, accessToken });
+            // setAuth({ phoneNumber, pwd, roles, accessToken });
             setPhoneNumber('');
             setPwd('');
             setSuccess(true);
