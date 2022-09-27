@@ -6,9 +6,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button} from 'react-bootstrap';
 import BackButton from "../BackButton";
 
-const Login = () =>{
+const Login = () => {
 
-    let navigate = useNavigate();
+    const navigate = useNavigate();
     const [data, setData] = useState({
         email: "",
         pwd: "",
@@ -48,7 +48,7 @@ const Login = () =>{
 
     return(
         
-        <form className= "forminputs">
+        <form className= "forminputs" style={{display:"flex", flexDirection:"column"}}>
             <input
                 className="forminputs"
                 type = {"tel"}

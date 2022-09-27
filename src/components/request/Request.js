@@ -1,12 +1,10 @@
 import React from 'react';
 import axios from 'axios';
 import { Button } from 'react-bootstrap';
-import InputAdornment from '@mui/material/InputAdornment';
-import { Input, TextField } from '@material-ui/core';
 
-
+//import InputAdornment from '@mui/material/InputAdornment';
+//import { Input, TextField } from '@material-ui/core';
 //import { Button, MenuItem, TextField, Box } from '@mui/material';
-
 
 const estimatedTimes = [
   {
@@ -140,7 +138,7 @@ export default function Request() {
         setDebitedAmount("00")
           
       })
-      .catch(err => console.error(err));
+      .catch(err => console.error(err.message));
     }
     else {
       alert("fields cannot be empty")
@@ -150,8 +148,8 @@ export default function Request() {
 
   return (
     <form className= "forminputs" style={{border: "2px solid grey", width: 400}}>
-        <TextField
-        className= "forminputs"
+        <select
+          className= "forminputs"
           id="debited-bank"
           select
           required
@@ -166,22 +164,24 @@ export default function Request() {
               {option.label}
             </option>
           ))}
-        </TextField>
+        </select>
 
-        <TextField
-        className= "forminputs"
+        <input
+          className= "forminputs"
           id="card-number"
+          type={"number"}
           required
           autoComplete='off'
           label="Card Number"
           variant={'outlined'}
+          placeholder="1234623529870254"
           value={cardNumber}
           onChange={(e) => setCardNumber(e.target.value)}
           helperText="Please enter your card number"
         />
         
         {/* <input
-        className= "forminputs"
+          className= "forminputs"
           id="your-account-number"
           disabled
           required
@@ -192,8 +192,8 @@ export default function Request() {
           helperText="Your Account Number will be dispalyed Here"
         /> */}
 
-        <TextField
-        className= "forminputs"
+        <select
+          className= "forminputs"
           id="atm-owner-bank"
           select
           required
@@ -208,10 +208,10 @@ export default function Request() {
               {option.label}
             </option>
           ))}
-        </TextField>
+        </select>
 
-        <TextField
-        className= "forminputs"
+        <input
+          className= "forminputs"
           id="debited-date"
           type="date"
           variant={'outlined'}
@@ -221,8 +221,8 @@ export default function Request() {
           onChange={(e) => setDebitedDate(e.target.value)}
           helperText="Please select the exact date"
         />
-        <TextField
-        className= "forminputs"
+        <select
+          className= "forminputs"
           id="estimated-time"
           select
           label="Estimated Time"
@@ -236,10 +236,10 @@ export default function Request() {
               {option.label}
             </option>
           ))}
-        </TextField>
+        </select>
 
-        <TextField
-        className= "forminputs"
+        <input
+          className= "forminputs"
           id= "amount-debited"
           type= {"number"}
           required
@@ -248,10 +248,10 @@ export default function Request() {
           variant={'outlined'}
           onChange= {(e) => setDebitedAmount(e.target.value)}
 
-          InputProps={{
-            endAdornment: <InputAdornment position="end">ETB</InputAdornment>,
-          }}
-          helperText="Please enter the wrongly debited amount"
+          // InputProps={{
+          //   endAdornment: <InputAdornment position="end">ETB</InputAdornment>,
+          // }}
+          // helperText="Please enter the wrongly debited amount"
         />
         
       <div>
@@ -259,11 +259,12 @@ export default function Request() {
           type= {"checkbox"}
           checked= {checked}
           onChange= {handleCheck}
-      />
-        {"  "}<label 
-            onDoubleClick= { handleCheck}
+        />
+        {"  "}
+        <label 
+          onDoubleClick= { handleCheck}
         >
-            I agree that the above informations are correct
+          I agree that the above informations are correct
         </label>
       </div>
       <div>
