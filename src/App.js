@@ -3,9 +3,6 @@ import './App.css';
 import { Button } from 'react-bootstrap';
 import {useNavigate} from 'react-router-dom';
 // import useStyles from '../../store/app-styles';
-import Signup from './components/customer/Signup';
-// import Signup2 from './components/customer/Signup2';
-import Login from './components/customer/Login';
 // import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
 
 
