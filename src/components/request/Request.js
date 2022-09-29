@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import { Button } from 'react-bootstrap';
 
+import "../../css/inputs.css";
+
 //import InputAdornment from '@mui/material/InputAdornment';
 //import { Input, TextField } from '@material-ui/core';
 //import { Button, MenuItem, TextField, Box } from '@mui/material';
@@ -12,28 +14,35 @@ const estimatedTimes = [
     label: "select one"
   },
   {
-    value: 'before-midnight',
-    label: 'Before Mid Night'
+    
+    id: 'before-midnight',
+    label: 'Before Mid Night',
+    value: 'Before Mid Night'
   },
   {
-    value: 'midnight',
-    label: 'at Mid Night'
+    id: 'midnight',
+    label: 'at Mid Night',
+    value: 'at Mid Night'
   },
   {
-    value: 'after-midnight',
-    label: 'After Mid Night'
+    id: 'after-midnight',
+    label: 'After Mid Night',
+    value: 'After Mid Night'
   },
   {
-    value: 'before-noon',
-    label: 'Before Noon'
+    id: 'before-noon',
+    label: 'Before Noon',
+    value: 'Before Noon'
   },
   {
-    value: 'noon',
-    label: 'at Noon'
+    id: 'noon',
+    label: 'at Noon',
+    value: 'at Noon'
   },
   {
-    value: 'afternoon',
-    label: 'After Noon'
+    id: 'afternoon',
+    label: 'After Noon',
+    value: 'After Noon'
   },
 ]
 
@@ -94,23 +103,23 @@ const banks = [
   },
 ];
 
+const herokuUrl = "https://dispute-mgt-sys-api.herokuapp.com";
+const localUrl = "http://localhost:3000";
+
 export default function Request() {
 
   const [debitedBank, setDebitedBank] = React.useState("");
   const [atmOwnerBank, setAtmOwnerBank] = React.useState("");
   const [cardNumber, setCardNumber] = React.useState("");
-  const [debitedDate, setDebitedDate] = React.useState(new Date());
+  const [debitedDate, setDebitedDate] = React.useState();
   const [estimatedTime, setEstimatedTime] = React.useState("");
   const [checked, setChecked] = React.useState(false);
   const [debitedAmount, setDebitedAmount] = React.useState("00");
 
-  const herokuUrl = "https://dispute-mgt-sys-api.herokuapp.com";
-  const localUrl = "http://localhost:3000";
-
   const handleCheck = () => {
-    console.log(debitedBank+ "\n" +cardNumber+ "\n" +atmOwnerBank + "\n" +debitedDate + "\n" +estimatedTime + "\n" + debitedAmount)
+    // console.log(debitedBank+ "\n" +cardNumber+ "\n" +atmOwnerBank + "\n" +debitedDate + "\n" +estimatedTime + "\n" + debitedAmount)
     if(debitedBank && cardNumber && atmOwnerBank && debitedDate && estimatedTime && debitedAmount !== ""){
-      console.log(debitedBank+ "\n" +cardNumber+ "\n" +atmOwnerBank + "\n" +debitedDate + "\n" +estimatedTime + "\n" + debitedAmount)
+      // console.log("all different from empty "+debitedBank+ "\n" +cardNumber+ "\n" +atmOwnerBank + "\n" +debitedDate + "\n" +estimatedTime + "\n" + debitedAmount)
       setChecked(true)
     }
     else {
@@ -126,7 +135,7 @@ export default function Request() {
       .post(herokuUrl + "/request/post", {debitedBank, cardNumber, atmOwnerBank, debitedDate, estimatedTime, debitedAmount})
       .then(res => {
 
-        alert("sorry that "+ res.data.result.atmOwnerBank + " wrongly debited " + res.data.result.debitedAmount +
+        alert("sorry that "+ res.data.result.atmOwnerBank + " wrongly debited ETB: " + res.data.result.debitedAmount +
           " from your " + res.data.result.debitedBank +" account");
         
         setAtmOwnerBank("");
@@ -138,143 +147,160 @@ export default function Request() {
         setDebitedAmount("00")
           
       })
-      .catch(err => console.error(err.message));
+      .catch(err => alert(err.message));
     }
     else {
+          // console.log("empty fields "+debitedBank+ "\n" +cardNumber+ "\n" +atmOwnerBank + "\n" +debitedDate + "\n" +estimatedTime + "\n" + debitedAmount)
+
       alert("fields cannot be empty")
     }
   }
 
 
   return (
-    <form className= "forminputs" style={{border: "2px solid grey", width: 400}}>
-        <select
-          className= "forminputs"
-          id="debited-bank"
-          select
-          required
-          variant={'outlined'}
-          label="Debited Bank"
-          value={debitedBank}
-          onChange={(e) => setDebitedBank(e.target.value)}
-          helperText="Please select the wrongly debited bank"
-        >
-          {banks.map((option) => (
-            <option key={option.id} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </select>
+    <section className="center">
+    <form
+      style={
+        {
+          border: "2px solid grey", width: "18rem", alignItems: "stretch",
+          margin: "0.5rem", padding: "0.5rem 0.5rem", display: "flex", flexDirection: "column",
+          borderRadius: "0.5rem"
+        }
+      }
+    >
 
-        <input
-          className= "forminputs"
-          id="card-number"
-          type={"number"}
-          required
-          autoComplete='off'
-          label="Card Number"
-          variant={'outlined'}
-          placeholder="1234623529870254"
-          value={cardNumber}
-          onChange={(e) => setCardNumber(e.target.value)}
-          helperText="Please enter your card number"
-        />
+      <label htmlFor="debited-bank">Debited Bank: </label>
+      <select
+        className= "inputs"
+        id="debited-bank"
         
-        {/* <input
-          className= "forminputs"
-          id="your-account-number"
-          disabled
-          required
-          label="Your Account Number"
-          value={accountNumber}
-          onChange={(e) => setAccountNumber(e.target.value)}
-          inputProps={{ 'aria-label': 'controlled' }}
-          helperText="Your Account Number will be dispalyed Here"
-        /> */}
+        required
+        variant={'outlined'}
+        label="Debited Bank"
+        value={debitedBank}
+        onChange={(e) => setDebitedBank(e.target.value)}
+        helpertext="Please select the wrongly debited bank"
+      >
+        {banks.map((option) => (
+          <option key={option.id} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
 
-        <select
-          className= "forminputs"
-          id="atm-owner-bank"
-          select
-          required
-          variant={'outlined'}
-          label="ATM Owner Bank"
-          value={atmOwnerBank}
-          onChange={(e)=> setAtmOwnerBank(e.target.value)}
-          helperText="Please select the wrongly debited bank"
-        >
-          {banks.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </select>
+      <label htmlFor="card-number">Card Number: </label>
+      <input
+        className= "inputs"
+        id="card-number"
+        type={"number"}
+        required
+        autoComplete='off'
+        label="Card Number"
+        variant={'outlined'}
+        placeholder="1234623529870254"
+        value={cardNumber}
+        onChange={(e) => setCardNumber(e.target.value)}
+        helpertext="Please enter your card number"
+      />
+      
+      {/* <input
+        className= "inputs"
+        id="your-account-number"
+        disabled
+        required
+        label="Your Account Number"
+        value={accountNumber}
+        onChange={(e) => setAccountNumber(e.target.value)}
+        inputProps={{ 'aria-label': 'controlled' }}
+        helperText="Your Account Number will be dispalyed Here"
+      /> */}
 
-        <input
-          className= "forminputs"
-          id="debited-date"
-          type="date"
-          variant={'outlined'}
-          required
-          label="dd/mm/yyyy"
-          value={debitedDate}
-          onChange={(e) => setDebitedDate(e.target.value)}
-          helperText="Please select the exact date"
-        />
-        <select
-          className= "forminputs"
-          id="estimated-time"
-          select
-          label="Estimated Time"
-          variant={'outlined'}
-          value={estimatedTime}
-          onChange={(e) => setEstimatedTime(e.target.value)}
-          helperText="Please select Estimated time"
-        >
-          {estimatedTimes.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </select>
-
-        <input
-          className= "forminputs"
-          id= "amount-debited"
-          type= {"number"}
-          required
-          label= "Amount"
-          value= {debitedAmount}
-          variant={'outlined'}
-          onChange= {(e) => setDebitedAmount(e.target.value)}
-
-          // InputProps={{
-          //   endAdornment: <InputAdornment position="end">ETB</InputAdornment>,
-          // }}
-          // helperText="Please enter the wrongly debited amount"
-        />
+      <label htmlFor="atm-owner-bank">ATM Owner Bank: </label>
+      <select
+        className= "inputs"
+        id="atm-owner-bank"
         
-      <div>
+        required
+        variant={'outlined'}
+        label="ATM Owner Bank"
+        value={atmOwnerBank}
+        onChange={(e)=> setAtmOwnerBank(e.target.value)}
+        helpertext="Please select the wrongly debited bank"
+      >
+        {banks.map((option) => (
+          <option key={option.id} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
+
+      <label htmlFor="debited-date">Debited Date: </label>
+      <input
+        className= "inputs"
+        id="debited-date"
+        type="date"
+        variant={'outlined'}
+        required
+        label="dd/mm/yyyy"
+        value={debitedDate}
+        onChange={(e) => setDebitedDate(e.target.value)}
+        helpertext="Please select the exact date"
+      />
+
+      <label htmlFor="estimated-time">Estimated Time: </label>
+      <select
+        className= "inputs"
+        id="estimated-time"
+        
+        label="Estimated Time"
+        variant={'outlined'}
+        value={estimatedTime}
+        onChange={(e) => setEstimatedTime(e.target.value)}
+        helpertext="Please select Estimated time"
+      >
+        {estimatedTimes.map((option) => (
+          <option key={option.id} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
+
+      <label htmlFor="amount-debited">Debited Amount: </label>
+      <input
+        className= "inputs"
+        id= "amount-debited"
+        type= {"number"}
+        required
+        label= "Amount"
+        value= {debitedAmount}
+        variant={'outlined'}
+        onChange= {(e) => setDebitedAmount(e.target.value)}
+
+        // InputProps={{
+        //   endAdornment: <InputAdornment position="end">ETB</InputAdornment>,
+        // }}
+        // helperText="Please enter the wrongly debited amount"
+      />
+      <span>
         <input 
           type= {"checkbox"}
           checked= {checked}
           onChange= {handleCheck}
         />
-        {"  "}
-        <label 
+        {" "}
+        <label style={{display:"inline"}}
           onDoubleClick= { handleCheck}
         >
           I agree that the above informations are correct
         </label>
-      </div>
-      <div>
-        <Button onClick= {handleSubmit}>
-            Submit Request
-        </Button>
-      </div>
-      
-      
+      </span>
+
+      <Button  className="buttons" onClick= {handleSubmit}>
+          Submit Request
+      </Button>
+
     </form>
+    </section>
   );
 }
 

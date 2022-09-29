@@ -2,15 +2,19 @@ import React, {useState} from "react";
 import axios from "axios";
 
 import {useNavigate} from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button} from 'react-bootstrap';
 import BackButton from "../BackButton";
+
+import "../../css/inputs.css";
+
+const herokuUrl = "https://dispute-mgt-sys-api.herokuapp.com";
+const localUrl = "http://localhost:3000";
 
 const Login = () => {
 
     const navigate = useNavigate();
     const [data, setData] = useState({
-        email: "",
+        phoneNumber: "",
         pwd: "",
     })
 
@@ -21,36 +25,41 @@ const Login = () => {
     }
 
     function handleSubmit(e){
-        const herokuUrl = "https://dispute-mgt-sys-api.herokuapp.com";
-        const localUrl = "http://localhost:3000";
+        
         e.preventDefault();
         axios.post(herokuUrl + '/customer/login',{
             phoneNumber: data.phoneNumber,
             pwd: data.pwd,
-        }).then(res=>{
+        }).then(res => {
             handleLogin(res.data)
-        }).catch(err=>{
-            alert(err);
+        }).catch(err => {
+            alert(err.message);
         })
     }
 
     function handleLogin (data){
 
         if(data.message === "success"){
-            alert("login,  success!! \nyou are" + data.result.firstName+" "+ data.result.middleName+" !");
+            alert("login, success!! \nyou are " + data.result.firstName + " " + data.result.middleName+" !");
             navigate('/request/post');
         }
         else {
-            alert(data.message)
+            alert(data.error)
         }
     }
 
 
     return(
-        
-        <form className= "forminputs" style={{display:"flex", flexDirection:"column"}}>
+        <section className="center">
+        <form style={
+            {border: "2px solid grey", width: "18rem", alignItems: "stretch",
+            margin: "0.5rem", padding: "0.5rem 0.5rem", display: "flex", flexDirection: "column",
+            borderRadius: "0.5rem" }
+            }>
+
+            <label htmlFor="phoneNumber">Phone Number: </label>
             <input
-                className="forminputs"
+                className="inputs"
                 type = {"tel"}
                 id={"phoneNumber"}
                 required ={true}
@@ -60,9 +69,9 @@ const Login = () => {
                 value = {data.phoneNumber}
                 onChange={(e)=>handleFields(e)}
             />
-
+            <label htmlFor="pwd">Login Password: </label>
             <input
-                className="forminputs"
+                className="inputs"
                 type = {"password"}
                 id={"pwd"}
                 required ={true}
@@ -72,32 +81,33 @@ const Login = () => {
                 value = {data.pwd}
                 onChange={(e)=>handleFields(e)}
             />
-            <div>
-                <Button
-                    className= 'buttons'
-                    variant = {"contained"}
-                    color = {"primary"}
-                    onClick = {(e)=> {
-                        handleSubmit(e)
-                    }}
-                >
-                    Log in
-                </Button>
+           
+            <Button
+                className= 'buttons'
+                // variant="contained"
+                color = {"primary"}
+                onClick = {(e)=> {
+                    handleSubmit(e)
+                }}
+            >
+                Log in
+            </Button>
 
-                <Button
-                    className= 'buttons'
-                    label= {'new user?'}
-                    onClick = {(e)=> {
-                        navigate('/customer/signup')
+            <Button
+                className= 'buttons'
+                // variant="outlined"
+                onClick = {(e)=> {
+                    navigate('/customer/signup')
 
-                    }}
-                >
-                    Signup
-                </Button>
+                }}
+            >
+                Signup
+            </Button>
 
-                <BackButton className= 'buttons'/>
-            </div>
+            <BackButton className= 'buttons'/>
+            
         </form>
+        </section>
     );
 }
 

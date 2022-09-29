@@ -32,7 +32,7 @@ function App() {
       {/* <Textfield/> */}
 
       <div >
-        <Button className='buttons' onClick = {()=>navigate('/customer/signup2')}> SIGNUP </Button>
+        <Button className='buttons' onClick = {()=>navigate('/customer/signup')}> SIGNUP </Button>
         <Button className='buttons' variant="contained"onClick = {()=>navigate('/customer/login')}> LOGIN </Button>
       </div>
       

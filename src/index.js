@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -16,7 +16,9 @@ import Request from './components/request/Request';
 // import Search from './components/customer/search';
 // import RequestMaterial from './components/RequestMaterial-UI'
 // import CustomerListTable from './components/customer/tables/CustomerListTable';
+// import EnhancedTable2 from './components/EnhancedTable2';
 // import EnhancedTable from './components/EnhancedTable';
+import EnhancedTable from './components/EnhancedTable';
 // import RequestListTable from './components/request/tables/RequestListTable';
 
 
@@ -33,16 +35,16 @@ root.render(
 
           <Route path= '/customer/login' element= { <Login /> }/>
 
-          {/*<Route path= '/customer/login2' element= { <Login2 /> }/>
-          <Route path= '/customer/:email' element= { <Search /> }/>
-          <Route path= '/customer/list' element= { <CustomerListTable /> }/>
-          <Route path= '/customer/enhanced-table' element= { <EnhancedTable /> }/> */}
+          {/*<Route path= '/customer/login2' element= { <Login2 /> }/>*/}
+          {/* <Route path= '/customer/:email' element= { <Search /> }/> */}
+          {/* <Route path= '/customer/list' element= { <EnhancedTable2 /> }/> */}
+          {/* <Route path= '/customer/enhanced-table' element= { <EnhancedTable /> }/> */}
           
 
 
           {/* <Route path= '/request/material-ui' element= { <RequestMaterial /> }/>*/}
 
-          <Route path= '/request/post' element={ <Request /> }/>
+           <Route path= '/request/post' element={ <Request /> }/>
           {/* <Route path= '/request/list' element={ <RequestListTable /> }/>  */}
           
        </Routes>

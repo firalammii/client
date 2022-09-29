@@ -5,7 +5,7 @@ import {useNavigate} from "react-router-dom";
 import { Button} from 'react-bootstrap';
 import BackButton from '../BackButton'
 
-import "./signup.css";
+import "../../css/inputs.css";
 
 
 const herokuUrl = "https://dispute-mgt-sys-api.herokuapp.com";
@@ -46,21 +46,26 @@ const Signup = () => {
             pwd: data.pwd,
             
         }).then((res) => {
-            console.log(res.data.result.firstName);
             alert("WELCOME " + res.data.result.firstName + " " + res.data.result.middleName +" !");
+            const newData = {...data}
+            newData[e.target.id] = "";
+            setData(newData);
             navigate("/customer/login");
-        }).catch(err => alert(err)
+        }).catch(err => alert(err.message)
         )
     }
 
 
     return(
-
-        <form className= "forminputs" style={{border: "2px solid grey", width: 400, alignContent:"center"}}>
-            <div>
-                First Name: 
+<div className="center">
+        <form style={
+            {border: "2px solid grey", width: "18rem", alignItems: "stretch",
+            margin: "0.5rem", padding: "0.5rem 0.5rem", display: "flex", flexDirection: "column",
+            borderRadius: "0.5rem" }
+        }>
+            <label htmlFor="firstName">First Name: </label>
             <input
-                className="forminputs"
+                className="inputs"
                 type = {"text"}
                 id={"firstName"}
                 label = {"First Name"}
@@ -69,12 +74,11 @@ const Signup = () => {
                 value = {data.firstName}
                 onChange={(e) => handleFields(e)}
             />
-            </div>
            
-           <div>
-            Middle Name: 
+           <label htmlFor="middleName">Middle Name: </label>
+           
             <input
-                className= "forminputs"
+                className= "inputs"
                 type = {"text"}
                 id= {"middleName"}
                 label = {"Middle Name"}
@@ -83,12 +87,10 @@ const Signup = () => {
                 value = {data.middleName}
                 onChange= {(e)=> handleFields(e)}
             />
-           </div>
-            
-            <div>
-                Last Name: 
-                <input
-                className= "forminputs"
+         
+            <label htmlFor="lastName">Last Name: </label>
+            <input
+                className= "inputs"
                 type = {"text"}
                 id= {"lastName"}
                 label = {"Last Name"}
@@ -97,12 +99,10 @@ const Signup = () => {
                 value = {data.lastName}
                 onChange= {(e)=>handleFields(e)}
             />
-            </div>
-            
-            <div>
-                Phone Number: 
-                <input
-                className= "forminputs"
+
+            <label htmlFor="phoneNumber">Phone Number: </label>
+            <input
+                className= "inputs"
                 type = {"tel"}
                 id= {"phoneNumber"}
                 label = {"Mobile Phone Number"}
@@ -111,12 +111,10 @@ const Signup = () => {
                 value = {data.phoneNumber}
                 onChange= {(e)=>handleFields(e)}
             />
-            </div>
             
-            <div>
-                Create Password: 
-                <input
-                className= "forminputs"
+            <label htmlFor="pwd">Create Password: </label>
+            <input
+                className= "inputs"
                 type = {"password"}
                 id= {"pwd"}
                 label = {"password"}
@@ -125,12 +123,10 @@ const Signup = () => {
                 value = {data.pwd}
                 onChange= {(e)=>handleFields(e)}
             />
-            </div>
             
-            <div>
-                Confirm Password: 
-                <input
-                className= "forminputs"
+            <label htmlFor="matchPwd">Confirm Password: </label>
+            <input
+                className= "inputs"
                 type = {"password"}
                 id= {"matchPwd"}
                 label = {"confirmPassword"}
@@ -139,9 +135,8 @@ const Signup = () => {
                 value = {data.matchPwd}
                 onChange= {(e)=>handleFields(e)}
             />
-            </div>
             
-            <div>
+            {/* <div> */}
                 <Button
                     className= 'buttons'
                     variant = {"contained"}
@@ -161,18 +156,19 @@ const Signup = () => {
                 <Button
                     className= 'buttons'
                     variant = {"contained"}
-                    color = {"primary"}
+                    color="secondary"
                     onMouseOver= {() => <h3>already have one</h3>}
                     onClick = {(e) => {
                         navigate('/customer/login');
                     }}
                 >
-                    Login
+                    <i>already have? </i>Login
                 </Button>
                 
                 <BackButton className= 'buttons'/>
-            </div> 
+            {/* </div>  */}
        </form>
+       </div>
     );
 }
 export default Signup;

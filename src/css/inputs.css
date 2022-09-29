@@ -1,0 +1,23 @@
+.inputs {
+  margin: 0.5rem;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  /* min-width: 15rem; */
+  padding: 0.5rem 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.buttons {
+  margin:0.5rem;
+}
+
+.center {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  /* align-items: center; */
+  /* min-height: 100vh;  */
+  padding: 1rem 0.5rem;
+  
+}
