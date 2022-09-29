@@ -18,7 +18,7 @@ import Request from './components/request/Request';
 // import CustomerListTable from './components/customer/tables/CustomerListTable';
 // import EnhancedTable2 from './components/EnhancedTable2';
 // import EnhancedTable from './components/EnhancedTable';
-import EnhancedTable from './components/EnhancedTable';
+// import EnhancedTable from '../../store/EnhancedTable';
 // import RequestListTable from './components/request/tables/RequestListTable';
 
 
