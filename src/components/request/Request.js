@@ -118,7 +118,8 @@ export default function Request() {
 
   const handleCheck = () => {
     // console.log(debitedBank+ "\n" +cardNumber+ "\n" +atmOwnerBank + "\n" +debitedDate + "\n" +estimatedTime + "\n" + debitedAmount)
-    if(debitedBank && cardNumber && atmOwnerBank && debitedDate && estimatedTime && debitedAmount !== ""){
+    if(debitedBank !== "" && cardNumber !== "" && atmOwnerBank !== "" &&
+    debitedDate !== "" && estimatedTime !== "" && !(debitedAmount == "00" || debitedAmount == "")){
       // console.log("all different from empty "+debitedBank+ "\n" +cardNumber+ "\n" +atmOwnerBank + "\n" +debitedDate + "\n" +estimatedTime + "\n" + debitedAmount)
       setChecked(true)
     }
@@ -132,11 +133,13 @@ export default function Request() {
     
     if(checked){
       axios
-      .post(herokuUrl + "/request/post", {debitedBank, cardNumber, atmOwnerBank, debitedDate, estimatedTime, debitedAmount})
+      .post(herokuUrl + "/request/post", {
+        debitedBank, cardNumber, atmOwnerBank, 
+        debitedDate, estimatedTime, debitedAmount})
       .then(res => {
-
-        alert("sorry that "+ res.data.result.atmOwnerBank + " wrongly debited ETB: " + res.data.result.debitedAmount +
-          " from your " + res.data.result.debitedBank +" account");
+        alert("sorry that "+ res.data.result.atmOwnerBank + " wrongly debited ETB: " + 
+        res.data.result.debitedAmount + " from your " + res.data.result.debitedBank +
+        " account! \n request is successfully sent");
         
         setAtmOwnerBank("");
         setCardNumber("");
@@ -150,8 +153,8 @@ export default function Request() {
       .catch(err => alert(err.message));
     }
     else {
-          // console.log("empty fields "+debitedBank+ "\n" +cardNumber+ "\n" +atmOwnerBank + "\n" +debitedDate + "\n" +estimatedTime + "\n" + debitedAmount)
-
+          // console.log("empty fields "+debitedBank+ "\n" +cardNumber+ 
+          // "\n" +atmOwnerBank + "\n" +debitedDate + "\n" +estimatedTime + "\n" + debitedAmount)
       alert("fields cannot be empty")
     }
   }
@@ -173,7 +176,7 @@ export default function Request() {
       <select
         className= "inputs"
         id="debited-bank"
-        
+        disabled ={checked}
         required
         variant={'outlined'}
         label="Debited Bank"
@@ -194,6 +197,7 @@ export default function Request() {
         id="card-number"
         type={"number"}
         required
+        disabled ={checked}
         autoComplete='off'
         label="Card Number"
         variant={'outlined'}
@@ -219,7 +223,7 @@ export default function Request() {
       <select
         className= "inputs"
         id="atm-owner-bank"
-        
+        disabled ={checked}
         required
         variant={'outlined'}
         label="ATM Owner Bank"
@@ -241,6 +245,7 @@ export default function Request() {
         type="date"
         variant={'outlined'}
         required
+        disabled ={checked}
         label="dd/mm/yyyy"
         value={debitedDate}
         onChange={(e) => setDebitedDate(e.target.value)}
@@ -251,7 +256,7 @@ export default function Request() {
       <select
         className= "inputs"
         id="estimated-time"
-        
+        disabled ={checked}
         label="Estimated Time"
         variant={'outlined'}
         value={estimatedTime}
@@ -271,6 +276,7 @@ export default function Request() {
         id= "amount-debited"
         type= {"number"}
         required
+        disabled ={checked}
         label= "Amount"
         value= {debitedAmount}
         variant={'outlined'}
