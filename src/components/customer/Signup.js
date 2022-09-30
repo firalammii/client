@@ -103,6 +103,7 @@ const Signup = () => {
             <label htmlFor="phoneNumber">Phone Number: </label>
             <input
                 className= "inputs"
+                autoComplete="off"
                 type = {"tel"}
                 id= {"phoneNumber"}
                 label = {"Mobile Phone Number"}
@@ -115,6 +116,7 @@ const Signup = () => {
             <label htmlFor="pwd">Create Password: </label>
             <input
                 className= "inputs"
+                autoComplete="off"
                 type = {"password"}
                 id= {"pwd"}
                 label = {"password"}
