@@ -12,7 +12,7 @@
   margin:0.5rem;
 }
 
-.center {
+.section {
   display: flex;
   /* flex-direction: column; */
   justify-content: center;
