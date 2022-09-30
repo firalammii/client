@@ -9,7 +9,7 @@ import App from './App';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Signup from './components/customer/Signup';
 // import Signup2 from './components/customer/Signup2';
-import SignupMat from './components/SignupMat-ui';
+// import SignupMat from './components/SignupMat-ui';
 import Login from './components/customer/Login';
 // import Login2 from './components/customer/Login2';
 import Request from './components/request/Request';
@@ -31,7 +31,7 @@ root.render(
           <Route path= '/customer/signup' element= { <Signup /> }/>
 
           {/* <Route path= '/customer/signup2' element= { <Signup2 /> }/> */}
-          <Route path= '/customer/signupmat-ui' element= { <SignupMat /> }/>
+          {/* <Route path= '/customer/signupmat-ui' element= { <SignupMat /> }/> */}
 
           <Route path= '/customer/login' element= { <Login /> }/>
 
