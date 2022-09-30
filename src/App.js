@@ -39,7 +39,7 @@ function App() {
     <Container maxWidth="lg">
       <AppBar className='appBar' position="static" color="inherit">
         <Typography className='heading' variant="h2" align="center">Memories</Typography>
-        <img alt="icon" height="60" />
+        <img className="image" alt="icon" height="60" />
       </AppBar>
       <Grow in>
         <Container>
