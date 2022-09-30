@@ -119,7 +119,7 @@ export default function Request() {
   const handleCheck = () => {
     // console.log(debitedBank+ "\n" +cardNumber+ "\n" +atmOwnerBank + "\n" +debitedDate + "\n" +estimatedTime + "\n" + debitedAmount)
     if(debitedBank !== "" && cardNumber !== "" && atmOwnerBank !== "" &&
-    debitedDate !== "" && estimatedTime !== "" && !(debitedAmount == "00" || debitedAmount == "")){
+    debitedDate !== "" && estimatedTime !== "" && !(debitedAmount === "00" || debitedAmount === "")){
       // console.log("all different from empty "+debitedBank+ "\n" +cardNumber+ "\n" +atmOwnerBank + "\n" +debitedDate + "\n" +estimatedTime + "\n" + debitedAmount)
       setChecked(true)
     }
@@ -139,7 +139,7 @@ export default function Request() {
       .then(res => {
         alert("sorry that "+ res.data.result.atmOwnerBank + " wrongly debited ETB: " + 
         res.data.result.debitedAmount + " from your " + res.data.result.debitedBank +
-        " account! \n request is successfully sent");
+        " account! \n ------------------------------------\n Request is successfully sent");
         
         setAtmOwnerBank("");
         setCardNumber("");
@@ -155,7 +155,7 @@ export default function Request() {
     else {
           // console.log("empty fields "+debitedBank+ "\n" +cardNumber+ 
           // "\n" +atmOwnerBank + "\n" +debitedDate + "\n" +estimatedTime + "\n" + debitedAmount)
-      alert("fields cannot be empty")
+      alert("Please make sure the checkbox is checked!!")
     }
   }
 
