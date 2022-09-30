@@ -16,7 +16,7 @@ import EditIcon from '@mui/icons-material/Edit';
 
 import axios from "axios";
 
-const herokuUrl = "https://dispute-mgt-sys-api.herokuapp.com";
+const herokuUrl = "https://dispute-api.herokuapp.com/";
 const localUrl = "http://localhost:3000";
 
 function descendingComparator(a, b, orderBy) {

@@ -9,7 +9,7 @@
 // 
 // import '../../css/inputs.css'
 // 
-// const heroku_url = "https://dispute-mgt-sys-api.herokuapp.com";
+// const heroku_url = "https://dispute-api.herokuapp.com";
 // const local_url = "http://localhost:3000";
 // 
 // const Signup = ()=>{

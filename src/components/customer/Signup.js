@@ -8,7 +8,7 @@ import BackButton from '../BackButton'
 import "../../css/inputs.css";
 
 
-const herokuUrl = "https://dispute-mgt-sys-api.herokuapp.com";
+const herokuUrl = "https://dispute-api.herokuapp.com";
 const localUrl = "http://localhost:3000";
 
 // const NAME_REGEX = /^[A-z]$/;

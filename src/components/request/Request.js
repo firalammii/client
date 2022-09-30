@@ -103,7 +103,7 @@ const banks = [
   },
 ];
 
-const herokuUrl = "https://dispute-mgt-sys-api.herokuapp.com";
+const herokuUrl = "https://dispute-api.herokuapp.com";
 const localUrl = "http://localhost:3000";
 
 export default function Request() {

@@ -3,7 +3,7 @@ import useAxios from 'axios-hooks';
 import { Box, CircularProgress } from '@mui/material'
 import ListTable from './ListTable';
 
-const herokuUrl = "https://dispute-mgt-sys-api.herokuapp.com";
+const herokuUrl = "https://dispute-api.herokuapp.com";
 const localUrl = "http://localhost:3000";
 
 const CustomerListTable1 = () => {
