@@ -12,11 +12,11 @@ import Signup from './components/customer/Signup';
 // import SignupMat from './components/customer/SignupMat-ui';
 import Login from './components/customer/Login';
 // import Login2 from './components/customer/Login2';
-import Request from './components/request/Request';
+// import Request from './components/request/Request';
 import CustomerPage from './components/customer/CustomerPage';
 // import Search from './components/customer/search';
 // import RequestMaterial from './components/RequestMaterial-UI'
-import CustomerListTable from './components/customer/tables/CustomerListTable';
+// import CustomerListTable from '../../store/CustomerListTable';
 import ReactTable from './components/customer/tables/ReactTable';
 // import ReactBoot from './components/customer/tables/React-Boot';
 // import CustomerListTable1 from './components/customer/tables/CustomerListTable';

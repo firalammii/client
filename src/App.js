@@ -2,8 +2,10 @@ import React from 'react';
 import './App.css';
 import { Button } from 'react-bootstrap';
 import {useNavigate} from 'react-router-dom';
-// import useStyles from '../../store/app-styles';
-// import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
+
+import { Container, AppBar, Typography, Grow, Grid } from '@mui/material';
+import Signup from './components/customer/Signup';
+import Login from './components/customer/Login';
 
 
 // import Si from './components/customer/Si'
@@ -14,7 +16,7 @@ import {useNavigate} from 'react-router-dom';
 
 function App() {
   const navigate = useNavigate();
-  // const classes = useStyles();
+
   return (
     <>
     <div className="App">
@@ -34,9 +36,9 @@ function App() {
       </div>
       
     </div>
-    {/* <Container maxWidth="lg">
-      <AppBar className={classes.appBar} position="static" color="inherit">
-        <Typography className={classes.heading} variant="h2" align="center">Memories</Typography>
+    <Container maxWidth="lg">
+      <AppBar className='appBar' position="static" color="inherit">
+        <Typography className='heading' variant="h2" align="center">Memories</Typography>
         <img alt="icon" height="60" />
       </AppBar>
       <Grow in>
@@ -51,7 +53,7 @@ function App() {
           </Grid>
         </Container>
       </Grow>
-    </Container> */}
+    </Container>
 
     </>
   );
