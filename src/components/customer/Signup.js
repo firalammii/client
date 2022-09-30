@@ -57,7 +57,7 @@ const Signup = () => {
 
 
     return(
-<div className="center">
+    <section className="center">
         <form style={
             {border: "2px solid grey", width: "18rem", alignItems: "stretch",
             margin: "0.5rem", padding: "0.5rem 0.5rem", display: "flex", flexDirection: "column",
@@ -135,40 +135,37 @@ const Signup = () => {
                 value = {data.matchPwd}
                 onChange= {(e)=>handleFields(e)}
             />
-            
-            {/* <div> */}
-                <Button
-                    className= 'buttons'
-                    variant = {"contained"}
-                    color = {"primary"}
-                    onClick = {(e) => {
-                        if(data.pwd !== data.matchPwd){
-                            alert("the passwords are different!!");
-                        }
-                        else{
-                            handleSubmit(e)
-                        }
-                    }}
-                >
-                    Sign up
-                </Button>
+            <Button
+                className= 'buttons'
+                variant = {"contained"}
+                color = {"primary"}
+                onClick = {(e) => {
+                    if(data.pwd !== data.matchPwd){
+                        alert("the passwords are different!!");
+                    }
+                    else{
+                        handleSubmit(e)
+                    }
+                }}
+            >
+                Sign up
+            </Button>
 
-                <Button
-                    className= 'buttons'
-                    variant = {"contained"}
-                    color="secondary"
-                    onMouseOver= {() => <h3>already have one</h3>}
-                    onClick = {(e) => {
-                        navigate('/customer/login');
-                    }}
-                >
-                    <i>already have? </i>Login
-                </Button>
-                
-                <BackButton className= 'buttons'/>
-            {/* </div>  */}
+            <Button
+                className= 'buttons'
+                variant = {"contained"}
+                color="secondary"
+                onMouseOver= {() => <h3>already have one</h3>}
+                onClick = {(e) => {
+                    navigate('/customer/login');
+                }}
+            >
+                <i>already have one? </i> <b>Login</b>
+            </Button>
+            
+            <BackButton className= 'buttons'/>
        </form>
-       </div>
+       </section>
     );
 }
 export default Signup;
