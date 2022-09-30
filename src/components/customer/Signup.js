@@ -1,6 +1,6 @@
 
 import React, {useState} from "react";
-import Axios from "axios";
+import axios from "axios";
 import {useNavigate} from "react-router-dom";
 import { Button} from 'react-bootstrap';
 import BackButton from '../BackButton'
@@ -37,8 +37,8 @@ const Signup = () => {
     
     function handleSubmit(e){
 
-        e.preventDefault();
-        Axios.post(herokuUrl + '/customer/signup',{
+        e.preventDefault(e);
+        axios.post(herokuUrl + '/customer/signup',{
             firstName: data.firstName,  
             middleName: data.middleName,  
             lastName: data.lastName,  
@@ -46,13 +46,19 @@ const Signup = () => {
             pwd: data.pwd,
             
         }).then((res) => {
-            alert("WELCOME " + res.data.result.firstName + " " + res.data.result.middleName +" !");
-            const newData = {...data}
-            newData[e.target.id] = "";
-            setData(newData);
-            navigate("/customer/login");
-        }).catch(err => alert(err.message)
-        )
+            if(res.data.message === "success"){
+                alert("WELCOME " + res.data.result.firstName + " " + res.data.result.middleName +" !");
+                const newData = {...data}
+                newData[e.target.id] = "";
+                setData(newData);
+                navigate("/customer/login");
+            }
+            else if(res.data.status === 400){
+                alert(res.data.message)
+            }
+            else alert("received but not saved")
+            
+        }).catch((err) => alert(err.message))
     }
 
 
@@ -64,6 +70,16 @@ const Signup = () => {
             margin: "0.5rem", padding: "0.5rem 0.5rem", display: "flex", flexDirection: "column",
             borderRadius: "0.5rem" }
         }>
+            <h4 
+                style={
+                    {
+                        textAlign: "center", justifyContent: "center", display: "flex", flexDirection: "column",
+                        backgroundColor: "GrayText",height:"3rem", padding: "1rem", border: "1px solid grey", borderRadius: "0.5rem",
+                    }
+                }
+            >
+                Registration Form
+            </h4>
             <label htmlFor="firstName">First Name: </label>
             <input
                 className="inputs"

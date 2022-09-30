@@ -1,6 +1,6 @@
 import React from 'react'
 import useAxios from 'axios-hooks';
-import { Box, CircularProgress } from '@mui/material'
+import ProgressBar from 'react-bootstrap/ProgressBar';
 import ListTable from './ListTable';
 
 const herokuUrl = "https://dispute-api.herokuapp.com";
@@ -11,16 +11,16 @@ const CustomerListTable1 = () => {
   const [{data, loading, error}] = useAxios( herokuUrl + "/customer/list")
   if(loading){
     return(
-      <Box sx={{display:'flex'}}>
-        <CircularProgress/>
-      </Box>
+      <div sx={{display:'flex'}}>
+        <ProgressBar now={60} />
+      </div>
     )
   }
   if(error){
     return (
-      <Box sx={{display:'flex'}}>
-        Error!!: {error.message}
-      </Box>
+      <div sx={{display:'flex'}}>
+        <ProgressBar now={60} />
+      </div>
     )
   }
 

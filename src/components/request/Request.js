@@ -161,151 +161,160 @@ export default function Request() {
 
 
   return (
-    <section className="center">
-    <form
-      style={
-        {
-          border: "2px solid grey", width: "18rem", alignItems: "stretch",
-          margin: "0.5rem", padding: "0.5rem 0.5rem", display: "flex", flexDirection: "column",
-          borderRadius: "0.5rem"
+    <section className="section">
+      <form title='Fill your dispute request'
+        style={
+          {
+            border: "2px solid grey", width: "18rem", alignItems: "stretch",
+            margin: "0.5rem", padding: "0.5rem 0.5rem", display: "flex", flexDirection: "column",
+            borderRadius: "0.5rem",
+          }
         }
-      }
-    >
-
-      <label htmlFor="debited-bank">Debited Bank: </label>
-      <select
-        className= "inputs"
-        id="debited-bank"
-        disabled ={checked}
-        required
-        variant={'outlined'}
-        label="Debited Bank"
-        value={debitedBank}
-        onChange={(e) => setDebitedBank(e.target.value)}
-        helpertext="Please select the wrongly debited bank"
       >
-        {banks.map((option) => (
-          <option key={option.id} value={option.value}>
-            {option.label}
-          </option>
-        ))}
-      </select>
-
-      <label htmlFor="card-number">Card Number: </label>
-      <input
-        className= "inputs"
-        id="card-number"
-        type={"number"}
-        required
-        disabled ={checked}
-        autoComplete='off'
-        label="Card Number"
-        variant={'outlined'}
-        placeholder="1234623529870254"
-        value={cardNumber}
-        onChange={(e) => setCardNumber(e.target.value)}
-        helpertext="Please enter your card number"
-      />
-      
-      {/* <input
-        className= "inputs"
-        id="your-account-number"
-        disabled
-        required
-        label="Your Account Number"
-        value={accountNumber}
-        onChange={(e) => setAccountNumber(e.target.value)}
-        inputProps={{ 'aria-label': 'controlled' }}
-        helperText="Your Account Number will be dispalyed Here"
-      /> */}
-
-      <label htmlFor="atm-owner-bank">ATM Owner Bank: </label>
-      <select
-        className= "inputs"
-        id="atm-owner-bank"
-        disabled ={checked}
-        required
-        variant={'outlined'}
-        label="ATM Owner Bank"
-        value={atmOwnerBank}
-        onChange={(e)=> setAtmOwnerBank(e.target.value)}
-        helpertext="Please select the wrongly debited bank"
-      >
-        {banks.map((option) => (
-          <option key={option.id} value={option.value}>
-            {option.label}
-          </option>
-        ))}
-      </select>
-
-      <label htmlFor="debited-date">Debited Date: </label>
-      <input
-        className= "inputs"
-        id="debited-date"
-        type="date"
-        variant={'outlined'}
-        required
-        disabled ={checked}
-        label="dd/mm/yyyy"
-        value={debitedDate}
-        onChange={(e) => setDebitedDate(e.target.value)}
-        helpertext="Please select the exact date"
-      />
-
-      <label htmlFor="estimated-time">Estimated Time: </label>
-      <select
-        className= "inputs"
-        id="estimated-time"
-        disabled ={checked}
-        label="Estimated Time"
-        variant={'outlined'}
-        value={estimatedTime}
-        onChange={(e) => setEstimatedTime(e.target.value)}
-        helpertext="Please select Estimated time"
-      >
-        {estimatedTimes.map((option) => (
-          <option key={option.id} value={option.value}>
-            {option.label}
-          </option>
-        ))}
-      </select>
-
-      <label htmlFor="amount-debited">Debited Amount: </label>
-      <input
-        className= "inputs"
-        id= "amount-debited"
-        type= {"number"}
-        required
-        disabled ={checked}
-        label= "Amount"
-        value= {debitedAmount}
-        variant={'outlined'}
-        onChange= {(e) => setDebitedAmount(e.target.value)}
-
-        // InputProps={{
-        //   endAdornment: <InputAdornment position="end">ETB</InputAdornment>,
-        // }}
-        // helperText="Please enter the wrongly debited amount"
-      />
-      <span>
-        <input 
-          type= {"checkbox"}
-          checked= {checked}
-          onChange= {handleCheck}
-        />
-        {" "}
-        <label style={{display:"inline"}}
-          onDoubleClick= { handleCheck}
+        <h4 
+          style={
+          {
+            textAlign: "center", justifyContent: "center", display: "flex", flexDirection: "column",
+            backgroundColor: "GrayText",height:"3rem", padding: "1rem", border: "1px solid grey", borderRadius: "0.5rem",
+          }
+        }
         >
-          I agree that the above informations are correct
-        </label>
-      </span>
+          Request Form
+        </h4>
+        <label htmlFor="debited-bank">Debited Bank: </label>
+        <select
+          className= "inputs"
+          id="debited-bank"
+          disabled ={checked}
+          required
+          variant={'outlined'}
+          label="Debited Bank"
+          value={debitedBank}
+          onChange={(e) => setDebitedBank(e.target.value)}
+          helpertext="Please select the wrongly debited bank"
+        >
+          {banks.map((option) => (
+            <option key={option.id} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
 
-      <Button  className="buttons" onClick= {handleSubmit}>
+        <label htmlFor="card-number">Card Number: </label>
+        <input
+          className= "inputs"
+          id="card-number"
+          type={"number"}
+          required
+          disabled ={checked}
+          autoComplete='off'
+          label="Card Number"
+          variant={'outlined'}
+          placeholder="1234623529870254"
+          value={cardNumber}
+          onChange={(e) => setCardNumber(e.target.value)}
+          helpertext="Please enter your card number"
+        />
+        
+        {/* <input
+          className= "inputs"
+          id="your-account-number"
+          disabled
+          required
+          label="Your Account Number"
+          value={accountNumber}
+          onChange={(e) => setAccountNumber(e.target.value)}
+          inputProps={{ 'aria-label': 'controlled' }}
+          helperText="Your Account Number will be dispalyed Here"
+        /> */}
+
+        <label htmlFor="atm-owner-bank">ATM Owner Bank: </label>
+        <select
+          className= "inputs"
+          id="atm-owner-bank"
+          disabled ={checked}
+          required
+          variant={'outlined'}
+          label="ATM Owner Bank"
+          value={atmOwnerBank}
+          onChange={(e)=> setAtmOwnerBank(e.target.value)}
+          helpertext="Please select the wrongly debited bank"
+        >
+          {banks.map((option) => (
+            <option key={option.id} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+
+        <label htmlFor="debited-date">Debited Date: </label>
+        <input
+          className= "inputs"
+          id="debited-date"
+          type="date"
+          variant={'outlined'}
+          required
+          disabled ={checked}
+          label="dd/mm/yyyy"
+          value={debitedDate}
+          onChange={(e) => setDebitedDate(e.target.value)}
+          helpertext="Please select the exact date"
+        />
+
+        <label htmlFor="estimated-time">Estimated Time: </label>
+        <select
+          className= "inputs"
+          id="estimated-time"
+          disabled ={checked}
+          label="Estimated Time"
+          variant={'outlined'}
+          value={estimatedTime}
+          onChange={(e) => setEstimatedTime(e.target.value)}
+          helpertext="Please select Estimated time"
+        >
+          {estimatedTimes.map((option) => (
+            <option key={option.id} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+
+        <label htmlFor="amount-debited">Debited Amount: </label>
+        <input
+          className= "inputs"
+          id= "amount-debited"
+          type= {"number"}
+          required
+          disabled ={checked}
+          label= "Amount"
+          value= {debitedAmount}
+          variant={'outlined'}
+          onChange= {(e) => setDebitedAmount(e.target.value)}
+
+          // InputProps={{
+          //   endAdornment: <InputAdornment position="end">ETB</InputAdornment>,
+          // }}
+          // helperText="Please enter the wrongly debited amount"
+        />
+        <span>
+          <input 
+            type= {"checkbox"}
+            checked= {checked}
+            onChange= {handleCheck}
+          />
+          {" "}
+          <label style={{display:"inline"}}
+            onDoubleClick= { handleCheck}
+          >
+            I agree that the above informations are correct
+          </label>
+        </span>
+
+        <Button  className="buttons" onClick= {handleSubmit}>
           Submit Request
-      </Button>
+        </Button>
 
-    </form>
+      </form>
     </section>
   );
 }

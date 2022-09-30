@@ -13,12 +13,16 @@ import Signup from './components/customer/Signup';
 import Login from './components/customer/Login';
 // import Login2 from './components/customer/Login2';
 import Request from './components/request/Request';
+import CustomerPage from './components/customer/CustomerPage';
 // import Search from './components/customer/search';
 // import RequestMaterial from './components/RequestMaterial-UI'
-// import CustomerListTable from './components/customer/tables/CustomerListTable';
+import CustomerListTable from './components/customer/tables/CustomerListTable';
+import ReactTable from './components/customer/tables/ReactTable';
+// import ReactBoot from './components/customer/tables/React-Boot';
+// import CustomerListTable1 from './components/customer/tables/CustomerListTable';
 // import EnhancedTable2 from './components/EnhancedTable2';
 // import EnhancedTable from './components/EnhancedTable';
-// import EnhancedTable from '../../store/EnhancedTable';
+
 // import RequestListTable from './components/request/tables/RequestListTable';
 
 
@@ -38,13 +42,15 @@ root.render(
           {/*<Route path= '/customer/login2' element= { <Login2 /> }/>*/}
           {/* <Route path= '/customer/:email' element= { <Search /> }/> */}
           {/* <Route path= '/customer/list' element= { <EnhancedTable2 /> }/> */}
+          {/* <Route path= '/customer/list' element= { <ReactBoot /> }/> */}
           {/* <Route path= '/customer/enhanced-table' element= { <EnhancedTable /> }/> */}
+          <Route path= '/customer/reacttable' element= { <ReactTable /> }/>
           
 
 
           {/* <Route path= '/request/material-ui' element= { <RequestMaterial /> }/>*/}
 
-           <Route path= '/request/post' element={ <Request /> }/>
+           <Route path= '/request/post' element={ <CustomerPage /> }/>
           {/* <Route path= '/request/list' element={ <RequestListTable /> }/>  */}
           
        </Routes>
