@@ -60,6 +60,7 @@ const Signup = () => {
     <section className="section">
         <form style={
             {border: "2px solid grey", width: "18rem", alignItems: "stretch",
+            autoComplete: "off",
             margin: "0.5rem", padding: "0.5rem 0.5rem", display: "flex", flexDirection: "column",
             borderRadius: "0.5rem" }
         }>
