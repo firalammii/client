@@ -66,7 +66,7 @@ const Login = () => {
                     style={
                         {
                             textAlign: "center", justifyContent: "center", display: "flex", flexDirection: "column",
-                            backgroundColor: "GrayText",height:"3rem", padding: "1rem", border: "1px solid grey", borderRadius: "0.5rem",
+                            backgroundColor: "rgba(0,0,0,0.4)", height:"3rem", padding: "1rem", border: "1px solid grey", borderRadius: "0.5rem",
                         }
                     }
                 >
