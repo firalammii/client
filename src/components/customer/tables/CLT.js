@@ -222,7 +222,7 @@ const ListTable = ({data, headCells, tableTitle}) => {
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
       const newSelecteds = data.map((n) => n._id);
-      console.log(newSelecteds);
+      // console.log(newSelecteds._id);
       setSelected(newSelecteds);
       return;
     }
@@ -245,7 +245,8 @@ const ListTable = ({data, headCells, tableTitle}) => {
         selected.slice(selectedIndex + 1),
       );
     }
-console.log(newSelected)
+
+    // console.log(newSelected)
 
     setSelected(newSelected);
   };
