@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Button } from 'react-bootstrap';
 
-import "../../css/inputs.css";
+import "../css/inputs.css";
 
 //import InputAdornment from '@mui/material/InputAdornment';
 //import { Input, TextField } from '@material-ui/core';

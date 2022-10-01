@@ -5,7 +5,7 @@ import {useNavigate} from "react-router-dom";
 import { Button} from 'react-bootstrap';
 import BackButton from "../BackButton";
 
-import "../../css/inputs.css";
+import "../css/inputs.css";
 import CustomerPage from "./CustomerPage";
 
 const herokuUrl = "https://dispute-api.herokuapp.com";

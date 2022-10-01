@@ -250,7 +250,7 @@ const EnhancedTableToolbar = (props: EnhancedTableToolbarProps) => {
     );
 };
 
-export default function EnhancedTable() {
+function ListTable() {
     const [order, setOrder] = React.useState<Order>('asc');
     const [orderBy, setOrderBy] = React.useState<keyof Data>('calories');
     const [selected, setSelected] = React.useState<readonly string[]>([]);
@@ -405,3 +405,5 @@ export default function EnhancedTable() {
         </Box>
     );
 }
+
+export default ListTable
