@@ -2,26 +2,48 @@ import React from 'react'
 import Request from '../request/Request';
 import CustomerProfile from './CustomerProfile'
 
-const CustomerPage = ({loginId}) => {
-    const styles = {
-        app: {
-        flex: 4, // the number of columns you want to devide the screen into
-        // marginHorizontal: "10rem",
-        width: 400,
-        backgroundColor: "red",
-        flexDirection: "row"
-    },
-    row: {
-    flexDirection: "row"
-  }
-};
-  return (
-    <section >
-        
-        <Request />
+import '../css/customer.css';
 
-        <CustomerProfile loginId={loginId}/>
-    </section>
+import { Container, Grow, Grid, AppBar, Typography } from '@mui/material';
+
+//   const styles = {
+//     .appBar {
+//     borderradius: 15;
+//     margin: '30px 0';
+//     display: 'flex';
+//     flex-direction: 'row';
+//     justify-content: 'center';
+//     align-items: 'center';
+// }
+// .heading {
+//   color: 'rgba(0,183,255, 1)';
+// }
+// .image {
+//   margin-left: '15px';
+// }
+// };
+
+const CustomerPage = ({loginId}) => {
+
+  return (
+    <Container maxWidth="lg" >
+      <AppBar className='appBar' maxWidth= "40rem" position="static" color="inherit">
+        <Typography className='heading' variant="h2" align="center">Memories</Typography>
+        <img className="image" alt="icon" height={60} />
+      </AppBar>
+      <Grow in>
+        <Container>
+          <Grid container justify="space-between" alignItems="stretch" spacing={3}>
+            <Grid item xs={12} sm={7}>
+              <Request />
+            </Grid>
+            <Grid item xs={12} sm={4}>
+              <CustomerProfile loginId={loginId}/>
+            </Grid>
+          </Grid>
+        </Container>
+      </Grow>
+    </Container>
   )
 }
 

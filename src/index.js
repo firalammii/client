@@ -18,6 +18,8 @@ import CustomerPage from './components/customer/CustomerPage';
 // import RequestMaterial from './components/RequestMaterial-UI'
 // import CustomerListTable from '../../store/CustomerListTable';
 import ReactTable from './components/customer/tables/ReactTable';
+import Request from './components/request/Request';
+import CustomerListTable from './components/customer/tables/CustomerListTable';
 // import ReactBoot from './components/customer/tables/React-Boot';
 // import CustomerListTable1 from './components/customer/tables/CustomerListTable';
 // import EnhancedTable2 from './components/EnhancedTable2';
@@ -33,6 +35,7 @@ root.render(
        <Routes>
           <Route path= '/' element= { <App/> }/>
           <Route path= '/customer/signup' element= { <Signup /> }/>
+          <Route path= '/customer' element= { <CustomerPage /> }/>
 
           {/* <Route path= '/customer/signup2' element= { <Signup2 /> }/> */}
           {/* <Route path= '/customer/signupmat' element= { <SignupMat /> }/> */}
@@ -42,15 +45,16 @@ root.render(
           {/*<Route path= '/customer/login2' element= { <Login2 /> }/>*/}
           {/* <Route path= '/customer/:email' element= { <Search /> }/> */}
           {/* <Route path= '/customer/list' element= { <EnhancedTable2 /> }/> */}
+          <Route path= '/customer/list' element= { <CustomerListTable /> }/>
           {/* <Route path= '/customer/list' element= { <ReactBoot /> }/> */}
           {/* <Route path= '/customer/enhanced-table' element= { <EnhancedTable /> }/> */}
-          <Route path= '/customer/reacttable' element= { <ReactTable /> }/>
+          {/* <Route path= '/customer/reacttable' element= { <ReactTable /> }/> */}
           
 
 
           {/* <Route path= '/request/material-ui' element= { <RequestMaterial /> }/>*/}
 
-           <Route path= '/request/post' element={ <CustomerPage /> }/>
+          {/* <Route path= '/request/post' element={ <Request /> }/> */}
           {/* <Route path= '/request/list' element={ <RequestListTable /> }/>  */}
           
        </Routes>

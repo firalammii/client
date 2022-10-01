@@ -55,27 +55,26 @@ const Login = () => {
         <section className="section">
             <form style={
                     {   
-                        border: "2px solid grey", width: "18rem", alignItems: "stretch",
+                        border: "2px solid grey", width: "auto", alignItems: "stretch",
                         margin: "0.5rem", padding: "0.5rem 0.5rem", display: "flex", flexDirection: "column",
-                        borderRadius: "0.5rem" 
+                        borderRadius: "0.5rem", 
                     }
                 }
             >
-
                 <h4 
                     style={
                         {
-                            textAlign: "center", justifyContent: "center", display: "flex", flexDirection: "column",
+                            textAlign: "center", justifyContent: "center", display: "flex", flexDirection: "column", margin: "1rem",
                             backgroundColor: "rgba(0,0,0,0.4)", height:"3rem", padding: "1rem", border: "1px solid grey", borderRadius: "0.5rem",
                         }
                     }
-                >
+                >  
                     Login Form
                 </h4>
 
                 <label htmlFor="phoneNumber">Phone Number: </label>
                 <input
-                    className="inputs"
+                    className="logininputs"
                     type = {"tel"}
                     id={"phoneNumber"}
                     required ={true}
@@ -87,7 +86,7 @@ const Login = () => {
                 />
                 <label htmlFor="pwd">Login Password: </label>
                 <input
-                    className="inputs"
+                    className="logininputs"
                     type = {"password"}
                     id={"pwd"}
                     required ={true}
@@ -100,7 +99,7 @@ const Login = () => {
             
                 <Button
                     className= 'buttons'
-                    // variant="contained"
+                    variant="contained"
                     color = {"primary"}
                     onClick = {(e)=> {
                         handleSubmit(e)
@@ -111,13 +110,13 @@ const Login = () => {
 
                 <Button
                     className= 'buttons'
-                    // variant="outlined"
+                    variant="outlined"
                     onClick = {(e)=> {
                         navigate('/customer/signup')
 
                     }}
                 >
-                    Signup
+                   <i>don't have account? </i> <b>Signup</b> 
                 </Button>
 
                 <BackButton className= 'buttons'/>

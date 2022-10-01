@@ -8,6 +8,16 @@
   /* border: "2px solid grey"; */
   border-radius: 0.5rem;
 }
+.logininputs {
+  margin: 1rem;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  min-width: 14rem;
+  padding: 0.5rem 0.5rem;
+  /* border: "2px solid grey"; */
+  border-radius: 0.5rem;
+}
 
 .buttons {
   margin:0.5rem;
@@ -22,3 +32,4 @@
   padding: 1rem 0.5rem;
   
 }
+

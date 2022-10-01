@@ -3,16 +3,6 @@ import './css/App.css';
 import { Button } from 'react-bootstrap';
 import {useNavigate} from 'react-router-dom';
 
-
-import Signup from './components/customer/Signup';
-import Login from './components/customer/Login';
-
-import Container from '@mui/material/Container';
-import Grow from '@mui/material/Grow';
-import Grid from '@mui/material/Grid';
-import AppBar from '@mui/material/AppBar';
-import Typography from '@mui/material/Typography';
-
 // import Si from './components/customer/Si'
 // import Re from './components/request/Re'
 // import Textfield from "../../store/Textfield"
@@ -41,24 +31,7 @@ function App() {
       </div>
       
     </div>
-    <Container maxWidth="lg">
-      <AppBar className='appBar' position="static" color="inherit">
-        <Typography className='heading' variant="h2" align="center">Memories</Typography>
-        <img className="image" alt="icon" height="60" />
-      </AppBar>
-      <Grow in>
-        <Container>
-          <Grid container justify="space-between" alignItems="stretch" spacing={3}>
-            <Grid item xs={12} sm={7}>
-              <Signup />
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <Login  />
-            </Grid>
-          </Grid>
-        </Container>
-      </Grow>
-    </Container>
+    
 
     </>
   );

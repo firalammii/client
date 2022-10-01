@@ -165,7 +165,7 @@ export default function Request() {
       <form title='Fill your dispute request'
         style={
           {
-            border: "2px solid grey", width: "18rem", alignItems: "stretch",
+            border: "2px solid grey", width: "auto", alignItems: "stretch",
             margin: "0.5rem", padding: "0.5rem 0.5rem", display: "flex", flexDirection: "column",
             borderRadius: "0.5rem",
           }
