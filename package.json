@@ -34,8 +34,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "preinstall": "npm install @material-ui/core --force",
-    "heroku-postbuild": "npm install"
+    "preinstall": "npm install @material-ui/core --force"
   },
   "eslintConfig": {
     "extends": [
