@@ -17,7 +17,7 @@ import CustomerPage from './components/customer/CustomerPage';
 // import Search from './components/customer/search';
 // import RequestMaterial from './components/RequestMaterial-UI'
 // import CustomerListTable from '../../store/CustomerListTable';
-import ReactTable from './components/customer/tables/ReactTable';
+// import ReactTable from './components/customer/tables/ReactTable';
 import Request from './components/request/Request';
 import CustomerListTable from './components/customer/tables/CustomerListTable';
 // import ReactBoot from './components/customer/tables/React-Boot';

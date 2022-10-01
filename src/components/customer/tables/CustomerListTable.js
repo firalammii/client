@@ -1,6 +1,6 @@
 import React from 'react'
 import useAxios from 'axios-hooks';
-import ListTable from './CLT';
+import CLT from './CLT';
 import { Box, CircularProgress } from '@mui/material';
 
 const herokuUrl = "https://dispute-api.herokuapp.com";
@@ -36,7 +36,7 @@ const CustomerListTable = () => {
   ];
 
   return (
-    <ListTable data = {data} headCells={headCells} tableTitle= "Customer Information Table" />
+    <CLT data = {data} headCells={headCells} tableTitle= "Customer Information Table" />
   )
 }
 
