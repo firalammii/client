@@ -1,13 +1,12 @@
 import React from 'react'
 import useAxios from 'axios-hooks';
-// import ProgressBar from 'react-bootstrap/ProgressBar';
-import ListTable from './ListTable.tsx';
+import ListTable from './CLT';
 import { Box, CircularProgress } from '@mui/material';
 
 const herokuUrl = "https://dispute-api.herokuapp.com";
 const localUrl = "http://localhost:3000";
 
-const CustomerListTable1 = () => {
+const CustomerListTable = () => {
     
   const [{data, loading, error}] = useAxios( herokuUrl + "/customer/list")
   if(loading){
@@ -31,6 +30,8 @@ const CustomerListTable1 = () => {
     { id: 'middleName', numeric: false, disablePadding: false, label: 'Middle Name' },
     { id: 'lastName', numeric: false, disablePadding: false, label: 'Last Name' },
     { id: 'phoneNumber', numeric: false, disablePadding: false, label: 'Tel' },
+    { id: 'regxnDate', numeric: false, disablePadding: false, label: 'Rgxn Date' },
+    { id: 'requests', numeric: false, disablePadding: false, label: 'Request Ids' },
 
   ];
 
@@ -39,4 +40,4 @@ const CustomerListTable1 = () => {
   )
 }
 
-export default CustomerListTable1
+export default CustomerListTable
