@@ -18,14 +18,14 @@ import CustomerPage from './components/customer/CustomerPage';
 // import RequestMaterial from './components/RequestMaterial-UI'
 // import CustomerListTable from '../../store/CustomerListTable';
 // import ReactTable from './components/customer/tables/ReactTable';
-// import Request from './components/request/Request';
+import Request from './components/request/Request';
 import CustomerListTable from './components/customer/tables/CustomerListTable';
 // import ReactBoot from './components/customer/tables/React-Boot';
 // import CustomerListTable1 from './components/customer/tables/CustomerListTable';
 // import EnhancedTable2 from './components/EnhancedTable2';
 // import EnhancedTable from './components/EnhancedTable';
 
-// import RequestListTable from './components/request/tables/RequestListTable';
+import RequestListTable from './components/request/requestTables/RequestListTable';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -54,8 +54,8 @@ root.render(
 
           {/* <Route path= '/request/material-ui' element= { <RequestMaterial /> }/>*/}
 
-          {/* <Route path= '/request/post' element={ <Request /> }/> */}
-          {/* <Route path= '/request/list' element={ <RequestListTable /> }/>  */}
+          <Route path= '/request/post' element={ <Request /> }/>
+          <Route path= '/request/list' element={ <RequestListTable /> }/> 
           
        </Routes>
     </BrowserRouter>
