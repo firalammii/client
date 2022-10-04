@@ -1,12 +1,14 @@
-// import React, {useState} from 'react';
+// import React, { useState } from 'react';
 // import PropTypes from 'prop-types';
 // import clsx from 'clsx';
-// import { lighten, makeStyles } from '@material-ui/core/styles';
-// // import { makeStyles } from '@mui/styles';
+// import { lighten } from '@material-ui/core/styles';
+// import { makeStyles } from '@mui/styles';
 // 
-// import { Table, TableBody, TableCell, TableContainer, TableHead, TablePagination,
+// import {
+//   Table, TableBody, TableCell, TableContainer, TableHead, TablePagination,
 //   TableRow, TableSortLabel, Toolbar, Typography, Paper, Checkbox, IconButton,
-//   Tooltip, FormControlLabel, Switch, TextField } from '@mui/material';
+//   Tooltip, FormControlLabel, Switch, TextField
+// } from '@mui/material';
 // // import DeleteIcon from '@mui/icons-material/Delete';
 // import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 // 
@@ -18,7 +20,7 @@
 // const herokuUrl = "https://dispute-api.herokuapp.com/";
 // const localUrl = "http://localhost:3000";
 // 
-// function descendingComparator(a, b, orderBy) {
+// function descendingComparator (a, b, orderBy) {
 //   if (b[orderBy] < a[orderBy]) {
 //     return -1;
 //   }
@@ -28,13 +30,13 @@
 //   return 0;
 // }
 // 
-// function getComparator(order, orderBy) {
+// function getComparator (order, orderBy) {
 //   return order === 'desc'
 //     ? (a, b) => descendingComparator(a, b, orderBy)
 //     : (a, b) => -descendingComparator(a, b, orderBy);
 // }
 // 
-// function stableSort(array, comparator) {
+// function stableSort (array, comparator) {
 //   const stabilizedThis = array.map((el, index) => [el, index]);
 //   stabilizedThis.sort((a, b) => {
 //     const order = comparator(a[0], b[0]);
@@ -55,7 +57,7 @@
 //     <TableHead >
 //       <TableRow>
 //         <TableCell padding="checkbox">
-//           <Tooltip title= "Sellect All">
+//           <Tooltip title="Sellect All">
 //             <Checkbox
 //               indeterminate={numSelected > 0 && numSelected < rowCount}
 //               checked={rowCount > 0 && numSelected === rowCount}
@@ -110,13 +112,13 @@
 //   highlight:
 //     theme.palette.type === 'light'
 //       ? {
-//           color: theme.palette.secondary.main,
-//           backgroundColor: lighten(theme.palette.secondary.light, 0.85),
-//         }
+//         color: theme.palette.secondary.main,
+//         backgroundColor: lighten(theme.palette.secondary.light, 0.85),
+//       }
 //       : {
-//           color: theme.palette.text.primary,
-//           backgroundColor: theme.palette.secondary.dark,
-//         },
+//         color: theme.palette.text.primary,
+//         backgroundColor: theme.palette.secondary.dark,
+//       },
 //   title: {
 //     flex: '1 1 100%',
 //   },
@@ -124,7 +126,7 @@
 // 
 // const EnhancedTableToolbar = (props) => {
 //   const classes = useToolbarStyles();
-//   const { numSelected, tableTitle} = props;
+//   const { numSelected, tableTitle } = props;
 // 
 //   return (
 //     <Toolbar
@@ -144,7 +146,7 @@
 // 
 //       {numSelected > 0 ? (
 //         <>
-//         {/* <Tooltip>
+//           {/* <Tooltip>
 //           <TextField
 //           id="standard-helperText"
 //           label="Helper text"
@@ -152,16 +154,16 @@
 //           helperText="Some important text"
 //         />
 //         </Tooltip> */}
-//         <Tooltip title="Edit">
-//           <IconButton onClick={()=>{axios.put(herokuUrl +`/customer/edit/{id}`)}} aria-label="edit">
-//             <EditIcon />
-//           </IconButton>
-//         </Tooltip>
-//         <Tooltip title="Delete">
-//           <IconButton onClick={()=>{axios.delete(herokuUrl +`/customer/delete/{id}`)}} aria-label="delete">
-//             <DeleteForeverIcon />
-//           </IconButton>
-//         </Tooltip>
+//           <Tooltip title="Edit">
+//             <IconButton onClick={() => { axios.put(herokuUrl + `/customer/edit/{id}`); }} aria-label="edit">
+//               <EditIcon />
+//             </IconButton>
+//           </Tooltip>
+//           <Tooltip title="Delete">
+//             <IconButton onClick={() => { axios.delete(herokuUrl + `/customer/delete/{id}`); }} aria-label="delete">
+//               <DeleteForeverIcon />
+//             </IconButton>
+//           </Tooltip>
 //         </>
 //       ) : (
 //         <h6>you can delete and update</h6>
@@ -203,7 +205,7 @@
 //   },
 // }));
 // 
-// const ListTable = ({data, headCells, tableTitle}) => {
+// const ListTable = ({ data, headCells, tableTitle }) => {
 // 
 //   const classes = useStyles();
 //   const [order, setOrder] = useState('asc');
@@ -212,7 +214,7 @@
 //   const [page, setPage] = useState(0);
 //   const [dense, setDense] = useState(false);
 //   const [rowsPerPage, setRowsPerPage] = useState(5);
-//   
+// 
 //   const handleRequestSort = (event, property) => {
 //     const isAsc = orderBy === property && order === 'asc';
 //     setOrder(isAsc ? 'desc' : 'asc');
@@ -251,9 +253,9 @@
 //     setSelected(newSelected);
 //   };
 // 
-// //   const handleCheck = ()=> {
-// // 
-// //   }
+//   //   const handleCheck = ()=> {
+//   // 
+//   //   }
 // 
 //   const handleChangePage = (event, newPage) => {
 //     setPage(newPage);
@@ -276,7 +278,7 @@
 //   return (
 //     <div className={classes.root}>
 //       <Paper className={classes.paper}>
-//         <EnhancedTableToolbar numSelected={selected.length} tableTitle={tableTitle}/>
+//         <EnhancedTableToolbar numSelected={selected.length} tableTitle={tableTitle} />
 //         <TableContainer>
 //           <Table
 //             className={classes.table}
@@ -285,8 +287,8 @@
 //             size={dense ? 'small' : 'medium'}
 //             aria-label="enhanced table"
 //             border="2px solid "
-//             stickyHeader 
-//            
+//             stickyHeader
+// 
 //           >
 //             <EnhancedTableHead
 //               classes={classes}
@@ -296,7 +298,7 @@
 //               onSelectAllClick={handleSelectAllClick}
 //               onRequestSort={handleRequestSort}
 //               rowCount={data.length}
-//               headCells = {headCells}
+//               headCells={headCells}
 //             />
 // 
 //             <TableBody>
@@ -359,7 +361,7 @@
 //       />
 //     </div>
 //   );
-// }
+// };
 // 
 // 
-// export default ListTable
+// export default ListTable;

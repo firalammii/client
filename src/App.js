@@ -3,10 +3,6 @@ import './components/css/App.css';
 import { Button } from 'react-bootstrap';
 import {useNavigate} from 'react-router-dom';
 
-// import Si from './components/customer/Si'
-// import Re from './components/request/Re'
-// import Textfield from "../../store/Textfield"
-
 
 
 function App() {
