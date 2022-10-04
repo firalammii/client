@@ -1,6 +1,6 @@
 import React from 'react'
 import useAxios from 'axios-hooks';
-import CLT from './CLT';
+// import CLT from './CLT';
 import ListTable from './ListTable'
 
 import { Box, CircularProgress } from '@mui/material';
@@ -38,8 +38,8 @@ const CustomerListTable = () => {
   ];
 
   return (
-    <CLT data = {data} headCells={headCells} tableTitle= "Customer Information Table" />
-    // <ListTable data = {data} headCells={headCells} tableTitle= "Customer Information Table" />
+    // <CLT data = {data} headCells={headCells} tableTitle= "Customer Information Table" />
+    <ListTable data = {data} headCells={headCells} tableTitle= "Customer Information Table" />
   )
 }
 

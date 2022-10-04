@@ -26,8 +26,8 @@ import { Container, Grow, Grid, AppBar, Typography } from '@mui/material';
 const CustomerPage = ({loginId}) => {
 
   return (
-    <Container maxWidth="lg" >
-      <AppBar className='appBar' maxWidth= "40rem" position="static" color="inherit">
+    <Container maxwidth="lg" >
+      <AppBar className='appBar' maxwidth= "40rem" position="static" color="inherit">
         <Typography className='heading' variant="h2" align="center">Memories</Typography>
         <img className="image" alt="icon" height={60} />
       </AppBar>
